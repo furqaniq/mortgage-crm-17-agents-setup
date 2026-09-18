@@ -1,0 +1,673 @@
+<title>Mortgage Agent Skills</title>
+<meta name="description" content="The skills each of the seventeen agents needs, decomposed from handbook version 6 and the seventeen AGENTS.md files.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#EEF0F0;
+  --card:#F8F9F8;
+  --ink:#181A1B;
+  --ink-2:#3E4345;
+  --muted:#6B7173;
+  --line:#D9DCDB;
+  --line-strong:#B4B9B8;
+  --claret:#7A1E2A;
+  --claret-ink:#5C1420;
+  --claret-soft:#F1DCDE;
+  --flag:#6E4C0C;
+  --flag-soft:#EDE2C4;
+  --amber:#7F5A11;
+  --amber-soft:#F3EDDC;
+  --lock-bg:#181A1B;
+  --lock-fg:#EEF0F0;
+
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131413;
+    --card:#1B1C1B;
+    --ink:#E7E9E8;
+    --ink-2:#BBBFBC;
+    --muted:#888E8C;
+    --line:#292B2A;
+    --line-strong:#3C403D;
+    --claret:#E0677E;
+    --claret-ink:#EF93A6;
+    --claret-soft:#3A1620;
+    --flag:#D9AE5E;
+    --flag-soft:#2A2013;
+    --amber:#D9AA55;
+    --amber-soft:#2A2314;
+    --lock-bg:#E7E9E8;
+    --lock-fg:#131413;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131413;
+  --card:#1B1C1B;
+  --ink:#E7E9E8;
+  --ink-2:#BBBFBC;
+  --muted:#888E8C;
+  --line:#292B2A;
+  --line-strong:#3C403D;
+  --claret:#E0677E;
+  --claret-ink:#EF93A6;
+  --claret-soft:#3A1620;
+  --flag:#D9AE5E;
+  --flag-soft:#2A2013;
+  --amber:#D9AA55;
+  --amber-soft:#2A2314;
+  --lock-bg:#E7E9E8;
+  --lock-fg:#131413;
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px;padding-block:40px 64px}
+@media (max-width:560px){.wrap{padding-inline:16px;padding-block:28px 48px}}
+a{color:var(--claret)}
+:focus-visible{outline:2px solid var(--claret);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+
+/* masthead */
+.masthead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;padding-bottom:22px;border-bottom:2px solid var(--ink)}
+.brandline{margin:0 0 10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--claret)}
+.masthead h1{font-family:var(--f-display);font-weight:500;font-size:clamp(34px,5.4vw,52px);line-height:1.04;letter-spacing:-.01em}
+.masthead h1 em{font-style:italic;color:var(--claret)}
+.stamp{font-family:var(--f-mono);font-size:12px;line-height:1.7;color:var(--ink-2);text-align:right}
+.stamp b{color:var(--ink);font-weight:600}
+@media (max-width:700px){.stamp{text-align:left}}
+
+.lede{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:26px 44px;padding-block:26px 4px}
+.lede p{margin:0 0 12px;max-width:64ch;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+@media (max-width:820px){.lede{grid-template-columns:1fr}}
+
+.tally{display:flex;flex-wrap:wrap;gap:22px 34px;margin-top:10px}
+.tally div b{display:block;font-family:var(--f-display);font-size:30px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.tally div span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+
+/* side panels */
+.panel{background:var(--card);border:1px solid var(--line);padding:16px 18px}
+.panel h3{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.panel p{margin:0 0 10px;font-size:13.5px;color:var(--ink-2)}
+.panel p:last-child{margin-bottom:0}
+.panel code{font-family:var(--f-mono);font-size:12px;color:var(--claret-ink);word-break:break-word}
+:root[data-theme="dark"] .panel code,:root:not([data-theme="light"]) .panel code{color:var(--claret)}
+
+/* rail */
+.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);
+  padding-block:10px;margin-top:28px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rail-label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.chip{font-family:var(--f-mono);font-size:12px;padding:4px 11px;border:1px solid var(--line-strong);border-radius:999px;
+  background:transparent;color:var(--ink-2);cursor:pointer}
+.chip:hover{border-color:var(--claret);color:var(--claret)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.lock[aria-pressed="true"]{background:var(--lock-bg);color:var(--lock-fg);border-color:var(--lock-bg)}
+.chip.first[aria-pressed="true"]{background:var(--claret);color:#fff;border-color:var(--claret)}
+.spacer{flex:1}
+.search{font-family:var(--f-mono);font-size:12.5px;padding:5px 9px;width:190px;border:1px solid var(--line-strong);
+  background:var(--card);color:var(--ink);border-radius:3px}
+.search::placeholder{color:var(--muted)}
+.count{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
+
+/* divisions and agents */
+.div-block{margin-top:36px}
+.div-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.div-head h2{font-family:var(--f-display);font-weight:500;font-size:24px}
+.div-head span{font-family:var(--f-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+.agent{border:1px solid var(--line);border-left:3px solid var(--claret);background:var(--card);padding:18px 20px;margin-top:14px}
+.a-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.a-num{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.a-name{font-family:var(--f-mono);font-size:19px;font-weight:600;letter-spacing:.01em}
+.a-title{font-size:14px;color:var(--claret-ink)}
+:root[data-theme="dark"] .a-title,:root:not([data-theme="light"]) .a-title{color:var(--claret)}
+.a-meta{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-family:var(--f-mono);font-size:10.5px;padding:2px 7px;border:1px solid var(--line-strong);color:var(--ink-2);white-space:nowrap}
+.tag.cap{background:var(--amber-soft);color:var(--amber);border-color:transparent}
+.a-mandate{font-size:14px;color:var(--ink-2);margin:10px 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);max-width:74ch}
+.a-path{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);margin:-6px 0 14px;word-break:break-word}
+
+/* skills */
+.skills{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px 28px}
+@media (max-width:780px){.skills{grid-template-columns:1fr}}
+.skills li{padding-left:16px;border-left:2px solid var(--line-strong)}
+.skills li.lock{border-left-color:var(--ink)}
+.s-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.s-name{font-family:var(--f-mono);font-size:13px;font-weight:600}
+.s-lock{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;
+  background:var(--lock-bg);color:var(--lock-fg)}
+.s-first{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;
+  background:var(--claret-soft);color:var(--claret-ink);border:1px solid transparent}
+:root[data-theme="dark"] .s-first,:root:not([data-theme="light"]) .s-first{color:var(--claret)}
+.s-desc{margin:4px 0 0;font-size:13.5px;color:var(--ink-2)}
+.s-note{margin:5px 0 0;font-size:12.5px;color:var(--muted)}
+.s-note b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--flag);font-weight:600}
+.s-note.dom b{color:var(--claret-ink)}
+:root[data-theme="dark"] .s-note.dom b,:root:not([data-theme="light"]) .s-note.dom b{color:var(--claret)}
+
+.empty{padding:40px 0;text-align:center;color:var(--muted);font-family:var(--f-mono);font-size:13px}
+
+/* thresholds table */
+.sheet{margin-top:44px}
+.sheet h2{font-family:var(--f-display);font-weight:500;font-size:24px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.sheet p{max-width:70ch;color:var(--ink-2);font-size:14px}
+.tablewrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--card)}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13.5px}
+th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--flag);white-space:nowrap}
+td.who{font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+
+footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:12px;color:var(--muted);line-height:1.7}
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <p class="brandline">Mortgage CRM &middot; small teams &middot; version 6</p>
+      <h1>What each agent needs to <em>know how to do</em></h1>
+    </div>
+    <p class="stamp">
+      <b>17 agents &middot; 4 divisions</b><br>
+      Source: AGENT_HANDBOOK_17_SMALL_TEAMS_v6.md<br>
+      and the 17 AGENTS.md files<br>
+      17 Sep 2026
+    </p>
+  </div>
+
+  <div class="lede">
+    <div>
+      <p>Each <code style="font-family:var(--f-mono);font-size:13px">AGENTS.md</code> says what its agent owns, what it must escalate, and what it must never do. None of them says <strong>how the work is done</strong> — that is what skills carry, and it is the reason the set rates 3.0 / 5 on operability and 2.5 / 5 on mortgage knowledge.</p>
+      <p>A skill here is one unit of work you could scope, build and test on its own: the thing you would hand to an engineer, or define as one tool in an agent's toolset. It is not a restatement of a responsibility bullet, and it never restates a rule that already lives in the handbook.</p>
+      <p>Two marks matter. <strong>Interlock</strong> means the skill implements that agent's <em>Hard boundary</em> in version 6 — it exists because the law, not a product decision, requires it, and it cannot be switched off. <strong>Build first</strong> marks the skills that close a gap already named in <code style="font-family:var(--f-mono);font-size:13px">AGENTS_md_known_limitations.md</code> for the lowest-scoring agents.</p>
+      <div class="tally">
+        <div><b id="cSkills">0</b><span>Skills</span></div>
+        <div><b id="cLocks">0</b><span>Interlocks</span></div>
+        <div><b id="cFirst">0</b><span>Build first</span></div>
+        <div><b id="cWait">0</b><span>Waiting on a decision</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Where each one lives</h3>
+      <p><code>skills/&lt;Division&gt;/&lt;CODENAME (Hire Title)&gt;/&lt;skill-name&gt;-&lt;codename&gt;/SKILL.md</code> — every skill name ends in its agent's codename in lowercase, so <code>dual-axis-scorer-pulse</code> is PULSE's wherever it turns up.</p>
+      <p>Frontmatter: <code>name</code>, <code>description</code>, <code>agent</code>, <code>division</code>, <code>binding</code> — <code>interlock</code> where marked below, otherwise <code>mandate</code>, since every agent in this roster has §5 Hard Rules.</p>
+      <p>Body, always these six: <strong>When this fires · Inputs · Procedure · Output · Hard rules · Measured on</strong>. Hard rules come in two groups — the agent's whole <code>AGENTS.md</code> §5 inherited verbatim, then the rules only this skill can break.</p>
+      <p>Format carried from the 24-agent company's <code>SKILLS_FOLDER_STRUCTURE.md</code>. Where a skill and the handbook disagree, the handbook wins.</p>
+    </div>
+  </div>
+
+  <div class="rail">
+    <span class="rail-label">Division</span>
+    <button class="chip" data-filter="div" data-value="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="div" data-value="Command" aria-pressed="false">Command</button>
+    <button class="chip" data-filter="div" data-value="Revenue" aria-pressed="false">Revenue</button>
+    <button class="chip" data-filter="div" data-value="Marketing" aria-pressed="false">Marketing</button>
+    <button class="chip" data-filter="div" data-value="Operations" aria-pressed="false">Operations</button>
+    <button class="chip lock" id="lockOnly" aria-pressed="false">Interlocks</button>
+    <button class="chip first" id="firstOnly" aria-pressed="false">Build first</button>
+    <span class="spacer"></span>
+    <span class="count" id="count"></span>
+    <input class="search" id="search" type="search" placeholder="Search skills…" aria-label="Search agents and skills">
+    <button class="chip" id="themeToggle" aria-pressed="false">Theme</button>
+  </div>
+
+  <div id="roster"></div>
+  <p class="empty" id="empty" hidden>Nothing matches that filter.</p>
+
+  <section class="sheet">
+    <h2>What these skills wait on</h2>
+    <p>The numbers below are the Account Owner's to decide — they are business decisions, not values a skill should invent. Each belongs in one shared <code style="font-family:var(--f-mono);font-size:13px">THRESHOLDS.md</code> that the skill reads by name, so a value changes in one place. Numbering follows section 2 of the limitations file.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Decision</th><th>Skills held up by it</th></tr></thead>
+        <tbody id="threshBody"></tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px"><strong>Also still open:</strong> the compliance law itself. AEGIS's rule set, judgment-pass criteria, score anchors and red-team categories are written as skills below, but their contents stay empty until the law is named — and when it is, it binds the agents that apply each rule, not only AEGIS.</p>
+  </section>
+
+  <section class="sheet">
+    <h2>What is deliberately not a skill</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Not a skill</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>The send gate, the invite and e-signature gates, the calendar attendee check, the generation screen</td><td>Platform software CIRCUIT builds and AEGIS reviews. AEGIS's skill is the rule set inside; the code is CIRCUIT's.</td></tr>
+          <tr><td>The suppression list, the voicemail counter, the activity log, the usage meter, the board approval queue</td><td>Platform features every agent reads. A skill reads them; none of them is work an agent does.</td></tr>
+          <tr><td>Opt-out enforcement, quiet hours, frequency caps</td><td>One enforcer only. ECHO, VOX and RELAY detect and record; the gate enforces.</td></tr>
+          <tr><td>Anything a second agent already owns</td><td>Handoffs run through ATLAS. A skill that reaches into another agent's surface is a lane break, not a capability.</td></tr>
+          <tr><td>The threshold values themselves</td><td>They live in one sheet the skills reference, so a change lands everywhere at once.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    Decomposed from each agent's job description, responsibilities, hard boundaries and its AGENTS.md §3–§5 &middot; gaps and threshold numbers per AGENTS_md_known_limitations.md &middot; conflict resolutions #1–91 respected throughout<br>
+    Companion to 17-agent-roster.html, which covers the roster itself.
+  </footer>
+</div>
+
+<script>
+/* [name, description, {l:interlock, f:build-first, t:[threshold numbers], d:"mortgage knowledge to write in"}] */
+const AGENTS = [
+{id:"SOPHIA",n:"01",title:"Personal Assistant",div:"Command",auto:"L3",cap:false,
+ mandate:"The front door. Every human instruction arrives here and every answer goes back out here — and it decides nothing itself.",
+ skills:[
+  ["request-sorter-sophia","Sorts each chat message into the one thing it is: a CRM question SOPHIA answers, or an instruction that goes to ATLAS with the requesting user, their role, their authority scope and their user ID attached. Confirms intent when it is ambiguous, and opens every conversation by stating it is an AI assistant.",{t:[18]}],
+  ["scoped-crm-answer-sophia","Answers from the CRM and from the asking user's own connected apps, filtered by WARDEN's permission model, naming the record the answer came from. Declines what is outside that user's access without paraphrasing what it declined, and says it cannot check right now when a read fails rather than answering from an earlier thread.",{f:true}],
+  ["board-decision-redirect-sophia","Recognises the three things that are not instructions — approve it, override the block, send it anyway — takes no action on any of them, and links a board user to the approval or review stage in Paperclip, where they decide under their own identity. A user who is not on the board is told it needs a board decision and the Account Owner is brought in. An ordinary request to send something is an instruction for ATLAS, not an override.",{l:true}],
+  ["finding-relay-verbatim-sophia","Reads each AEGIS finding from the board's approval queue and delivers it to the Account Owner word for word, marked as a compliance finding — never softened, shortened, delayed or held. Presents pending board approvals the same way, with the context and the link — spend approvals for RELAY's paid campaigns with their amount and campaign.",{l:true}],
+  ["connect-link-issuer-sophia","Delivers a Composio Connect Link under the right ID: a personal account's to that person, a company account's only to the named owner WARDEN records — never under whoever happens to be in the chat. Tells ATLAS the moment the connection is live so the waiting work resumes.",{l:true}],
+  ["escalation-delivery-sophia","Brings every escalation from ATLAS to the human who can act the same minute, decision first: complaints and distress, legal language, low-confidence money calls, unassigned leads, departures, questions ECHO needs answered, partner replies, and notices to stop using an asset whose approval was revoked.",{d:"who the right human is when the owning loan officer is away — branch manager, covering officer, or the Account Owner"}],
+  ["daily-brief-and-prep-sophia","Delivers each user's daily brief as ATLAS compiles it, call and meeting prep before the call rather than after it, and the neglect the owning agents flag. Collapses the notification feed to the three things that genuinely matter to that person.",{t:[18]}],
+  ["working-style-memory-sophia","Keeps a separate thread, memory and working-style profile per user — hours, tone, detail level, which decisions they want personally. Never reads one person's memory or connected accounts to answer another; never holds what belongs in ATLAS's per-contact brief.",{d:"what a per-user memory may hold about a colleague, and who may see it"}],
+  ["asset-and-consent-intake-sophia","Takes what people hand over and passes it to ATLAS in their own words: a staff member's consent to use their photo, given or withdrawn; images, logos and headshots with the source and usage rights they state; a partner's written consent relayed by the loan officer; the Account Owner's goals for the company strategy it submits to the board as CEO."]
+ ]},
+
+{id:"ATLAS",n:"02",title:"Chief of Staff",div:"Command",auto:"L4",cap:false,
+ mandate:"Runs the company's work: decomposes, delegates, and is the only agent that assigns anything to a specialist.",
+ skills:[
+  ["plan-decomposer-atlas","Turns an instruction into a multi-agent plan with named owners and success conditions, inside the authority SOPHIA stated for that user. Returns anything beyond that authority, and anything the roster does not cover, to SOPHIA rather than stretching a specialist's lane."],
+  ["signal-router-atlas","Routes every inbound signal and Composio trigger to the owning agent within 400ms, by the routing map the seventeen files describe — intake events, replies, no-shows, post-call output, closed and closed-lost files, stopped sources, gaps, findings. Detection and adjudication stay apart: a compliance pattern goes to AEGIS and its determination comes back to the agent that raised it.",{f:true,t:[13],d:"which first touch suits which lead type — a portal lead, a referral, a past borrower, an after-hours form fill"}],
+  ["task-identity-binder-atlas","Puts the right Composio user ID on every task: the person's own for their mailbox or calendar, the company's for shared accounts, and which of several accounts when a user holds more than one. An unassigned lead's first touch is company-only; nothing is routed under a leaver's ID; a workflow's send steps carry the ID the task sets, never CIRCUIT's."],
+  ["outbound-task-policy-atlas","Attaches AEGIS's review stage to every outbound task at the moment the task is created, splits unapproved work into a draft task and a send task, and creates the send task only once AEGIS has passed the draft. Adds a board user as an approval stage where the risk warrants it. Never advances, rejects or removes an AEGIS stage.",{l:true,t:[22]}],
+  ["contact-brief-keeper-atlas","Maintains the per-contact memory brief every other agent reads, so no agent asks a question the company already has the answer to. Carries no consumer credit information; a self-reported range, a position estimate and an indicative scenario travel only with their labels.",{d:"the brief's field list — what a loan officer needs on a screen before a call"}],
+  ["stall-loop-detector-atlas","Finds contradiction, stalls and loops between agents, resolves them by the owning agent's rulebook, and escalates through SOPHIA when the rulebooks do not settle it.",{t:[27]}],
+  ["budget-halter-atlas","Halts a step in place when a per-contact, per-campaign, per-user budget or a branch spend cap is reached, and reports it — never continuing at lower quality. A live call is never cut off, and RELAY keeps its send record so a halted campaign resumes without sending twice.",{t:[15]}],
+  ["escalation-gate-atlas","Stops the step and escalates through SOPHIA the moment confidence drops on anything touching money, deadlines or legal exposure, with the decision needed stated first. Legal language goes both to AEGIS as a finding and to the loan officer as urgent — both, never one instead of the other.",{t:[14]}],
+  ["hold-and-resume-atlas","Holds work instead of routing around it: a paused SOPHIA or AEGIS, a missing or expired connection, a task Paperclip escalates from a blocked AEGIS, a send the gate refused for consent, quiet hours, frequency, suppression or an exit hold — dropped or rescheduled only as the rule allows, never re-created to get around it."],
+  ["brief-compiler-atlas","Builds each user's daily brief from the agents that own each item, including LEDGER's executive brief, requests call and meeting prep far enough ahead to arrive before the call, and writes the weekly roster report for SOPHIA."]
+ ]},
+
+{id:"AEGIS",n:"03",title:"Compliance Officer",div:"Command",auto:"L3, cannot be disabled",cap:true,
+ mandate:"The reason the other sixteen can be trusted to act: a deterministic pass inside the gates, a judgment pass on every outbound task.",
+ skills:[
+  ["send-rule-set-aegis","Maintains the deterministic rules the gated send tools and the voice platform load on every message and call: consent, opt-out, DNC, suppression, quiet hours in the contact's timezone, frequency caps, the dormant-contact window EMBER defines, exit holds, unsubscribe-link requirements and the SMS registration status RELAY records. The gated publish tools load the same rule set for every post and ad, plus the disclosures posts require, the platform's credit or housing category, and a passed audience. Versioned, testable, and fails closed — if it cannot load, nothing sends or publishes.",{l:true,f:true,t:[24],d:"the rules themselves, once the law is named — consent and revocation, contact frequency, quiet hours, disclosure triggers"}],
+  ["disclosure-builder-aegis","Builds each required disclosure live from the user's profile — licence identifiers, equal-opportunity notice, jurisdictional limits, AI disclosure, recording notice — and calculates a figure into a placeholder a template already carries, so the template keeps its approval ID. Never ships a stale or partial disclosure, and never lets an agent write one by hand.",{f:true,d:"which disclosures attach to which content and state, and how a figure must be framed when it appears"}],
+  ["content-review-aegis","The judgment pass: reviews every draft template, script, library entry and visual asset at task close, passes, rejects or requests changes, and blocks anything a consumer could read as an approval, denial or eligibility statement. Confirms a dispute that hits the round cap reached the Account Owner, never ATLAS or SOPHIA.",{f:true,t:[2]}],
+  ["approval-id-lifecycle-aegis","Issues an approval ID for every passed template, script, library entry and asset, and revokes one when CANVAS withdraws an image for unknown or lapsed rights or withdrawn consent, when QUILL retires a template, or when a rule changes underneath it — then confirms the gates and the voice platform refuse it, on live channels too.",{d:"when an ID expires on its own — a rate figure, a seasonal offer, a licence — and what forces a re-review"}],
+  ["generation-screen-rules-aegis","Maintains the protected-class, proxy and steering rules the generation screen applies to every text draft QUILL writes and every image draft CANVAS produces, video templates included, and reads every flag the screen records.",{d:"the protected-class and steering rules themselves, in both words and imagery, once the law is named"}],
+  ["finding-adjudicator-aegis","Determines whether each pattern another agent escalated is a violation — a disposition pattern, a routing rule, a territory, a segment, a proposed field, partner compensation, legal language — and returns the determination through ATLAS to the agent that raised it. Releases a legal hold with that determination; releases a hostility or wrong-number hold only when the owning loan officer asks."],
+  ["conversation-scorer-aegis","Scores every completed conversation and call for accuracy, compliance, helpfulness and tone, SOPHIA's chats with staff included, and files promotion and demotion recommendations to the board within each agent's policy ceiling. Where after-the-fact scoring finds a live-channel violation, it opens the fix-up: the hold, the correction, the library entry to revoke.",{f:true,t:[2]}],
+  ["red-team-runner-aegis","Runs scheduled adversarial tests against the other sixteen — including whether a chat user can get SOPHIA past their own role — and files any successful attack as a blocking finding against that agent's promotion or go-live.",{t:[2]}],
+  ["paid-audience-review-aegis","Reviews every paid social audience with its ad before launch — no protected class or proxy for one, no targeting option the platform's credit or housing category restricts, nothing built from contact data uploaded from the CRM — and passes or returns both with reasons. Spend is not AEGIS's to approve; the board approves it.",{d:"the fair-lending basis for audience rules, once the law is named, and what each platform's special category restricts"}],
+  ["bypass-sweep-aegis","Sweeps for everything that tried to go around the gate: an outbound task closed without a review stage or with one edited or removed, a connected-app send or publish with no matching gate pass, a live post or ad still carrying a revoked ID, a call to a native send, publishing or public-share tool, a calendar event carrying an outside attendee, and WARDEN's own administrative actions reconciled against the activity log.",{l:true}],
+  ["gate-change-review-aegis","Reviews every change CIRCUIT makes to a gated tool, the calendar attendee check or the generation screen against the rule set before it deploys, then confirms the version running matches what passed.",{f:true}],
+  ["audit-export-aegis","Keeps the compliance record whole — outbound content, consent, gate passes, review stages, and Composio execution records copied in because their retention is not documented — and exports it by contact, agent or date range in under sixty seconds."],
+  ["board-filing-aegis","Files everything that needs a human to the board's approval queue and never up the org tree: confirmed violations with evidence, stage tampering, autonomy recommendations, blocking red-team results, and a budget override request before the budget runs out, because a paused AEGIS stops every send and call.",{l:true,t:[28]}]
+ ]},
+
+{id:"SCOUT",n:"04",title:"Lead Intake Coordinator",div:"Revenue",auto:"L4",cap:false,
+ mandate:"First to touch every new lead, and the reason the record is complete, deduplicated, enriched and owned before a competitor's autoresponder finishes sending.",
+ skills:[
+  ["source-normalizer-scout","Normalises every source — paid social, search, landing pages, portals, referral partners, inbound calls, spreadsheets, API, and the sets COMPASS migrates — into one canonical record shape, and captures the consent the source delivered with the lead: its source, its time and the wording the lead agreed to, recorded for AEGIS's rules to read and never judged here."],
+  ["identity-resolver-scout","Makes one human one record, however many times they arrive through however many channels with three phone formats. A lead that matches a contact who already has an owner keeps that owner; routing assigns only contacts with none.",{t:[17]}],
+  ["enrichment-runner-scout","Adds property characteristics, ownership tenure, position estimates, market context from LEDGER, source lineage and prior interaction history — every position figure labelled as an estimate, because it comes from property data and nothing else. Runs in parallel with first touch and completes when a source that was down returns.",{l:true}],
+  ["credit-field-discard-scout","Discards consumer credit information a source or a form delivers without storing it, and flags the source, so the only credit range in the system is one the borrower describes in their own words to PULSE.",{l:true}],
+  ["owner-assignment-scout","Applies WARDEN's routing rules — territory, language, specialty, live capacity and shift — to give each lead its human owner, never routing into someone at capacity or off shift. Re-runs the moment a loan officer becomes eligible for a lead nobody could take, reassigns a leaver's book to the named successor, and escalates any pattern by geography, language or a proxy to AEGIS rather than judging it.",{f:true,d:"what \"specialty\" means here — VA, FHA, jumbo, reverse, non-QM, construction, first-time buyer programmes, and which licence states a loan officer may be routed leads in"}],
+  ["instant-intake-event-scout","Fires the intake event the moment the record exists, marked unassigned where no officer is eligible, so first touch starts inside the window while enrichment is still running.",{d:"the latency budget for intake itself, inside the speed-to-lead window"}],
+  ["junk-and-duplicate-filter-scout","Flags junk, bot fills and duplicate paid-spend before they pollute the database or the attribution model.",{t:[17]}],
+  ["intake-form-designer-scout","Designs and tunes intake forms — fields, copy, placement, field-level drop-off analysis — and specifies their conditional logic and custom fields for CIRCUIT to build and backtest.",{d:"which questions belong on a mortgage intake form, and which ones cost more completions than they are worth"}],
+  ["source-health-monitor-scout","Watches every source for the failures that raise no error: a trigger that stopped firing, a connected account that expired, a source whose only path polls. Chooses each source's delivery path by latency and specifies it for CIRCUIT to build."]
+ ]},
+
+{id:"PULSE",n:"05",title:"Lead Qualification Specialist",div:"Revenue",auto:"L2 hard cap",cap:true,
+ mandate:"Decides who is real, who is ready now, and who is neither — and never lets any of that reach a customer as a decision.",
+ skills:[
+  ["discovery-question-set-pulse","The question set ATLAS routes into ECHO's conversations and VOX's calls: purpose, property type and occupancy, price or value, down payment or equity, income type, timeline, who else decides, motivation, and a credit range only as the borrower describes it. Each question phrased so no answer can be heard as an eligibility test, and a coverage rule that says what a complete discovery is.",{f:true,t:[1],d:"the questions themselves per purpose — purchase, rate-and-term refinance, cash-out — and what each answer tells you"}],
+  ["dual-axis-scorer-pulse","Scores intent (how ready) and fit (how workable) on their own scales and reports them separately, because a blended score destroys triage. Scores only what is known and marks the score incomplete rather than assuming an answer, and re-scores when new discovery lands.",{f:true,t:[1],d:"which signals move intent and which move fit, and the weight each carries"}],
+  ["complexity-flagger-pulse","Flags the file that needs a human before anyone wastes a week on it, the same minute it appears.",{f:true,d:"the complexity signals — self-employment history, recent bankruptcy or foreclosure, a non-warrantable condo, gift funds, a non-occupant co-borrower, unpermitted work, a short timeline against a long-lead product"}],
+  ["indicative-scenario-builder-pulse","Produces indicative figures for the loan officer's internal discussion, labelled as estimates with their assumptions attached, built on LEDGER's rate movement as a market average and never as a quote.",{d:"which components a scenario carries — principal and interest, taxes, insurance, mortgage insurance, HOA — and the default assumptions behind each"}],
+  ["disposition-engine-pulse","Dispositions internally — fast-track, nurture, park with a named reactivation trigger for EMBER to monitor, or disqualify with a reason — and treats every one of them as a routing state, never a decision, never communicated to a customer in any form.",{l:true,f:true,t:[1,30]}],
+  ["internal-only-output-guard-pulse","Keeps scores, dispositions and scenario figures inside the company: they reach the loan officer, ATLAS's brief and LEDGER, and no channel that faces a customer. ECHO and VOX are forbidden to relay them, and PULSE gives them nothing that could be read as an outcome.",{l:true}],
+  ["outcome-feed-pulse","Feeds every outcome back to LEDGER so scoring calibrates against what actually closed, and watches its own dispositions for a pattern by geography, language or a protected-class proxy, which goes to AEGIS to adjudicate.",{d:"what counts as the outcome — funded, denied, withdrawn, gone quiet — and when it is final"}]
+ ]},
+
+{id:"ECHO",n:"06",title:"Borrower Communications Coordinator",div:"Revenue",auto:"L3",cap:false,
+ mandate:"The unified written inbox, worked as a conversation partner rather than an autoresponder — and the agent that knows when to stop talking.",
+ skills:[
+  ["sixty-second-responder-echo","Replies inside sixty seconds, around the clock, in the customer's language, from the mailbox, page or number the contact wrote to — the owning loan officer's mailbox where there is one, a company channel until SCOUT records an owner. An inbox that only polls is flagged and never promised that speed.",{d:"the language fallback when the approved library has no entry in the customer's language"}],
+  ["intent-classifier-echo","Puts every inbound message in exactly one of ten intents, and flags complaint or distress on top rather than classifying a complaint as hostility to exit it. Its \"hot\" is a message-level read PULSE uses; PULSE's intent score is the one that fast-tracks.",{f:true,t:[16],d:"each intent defined by what the message actually says, with the borderline cases written out"}],
+  ["opt-out-exit-matcher-echo","Matches opt-out phrasing deliberately over-inclusively and exits permanently, recording the event for the suppression list. Exits the same way on hostility, legal language and a wrong number, each recorded as a hold the gates enforce against every agent — and a contact who was exited and writes in again goes to a human, never back to ECHO.",{f:true,t:[16]}],
+  ["approved-library-reply-echo","Answers and handles objections only from the compliance-approved library, because improvised objection handling is how compliance problems enter a system at scale. A question the library does not cover gets an approved holding template, an escalation, a gap flagged for QUILL — and silence on that thread until ATLAS hands it back.",{f:true,d:"the mortgage objection categories the library must cover — rate shopping, \"I already have a lender\", credit worry, down-payment doubt, timing, fees, a partner who has not agreed yet"}],
+  ["two-slot-closer-echo","Converts a conversation into a booking by offering two real slots read live from TEMPO's availability, never an open-ended \"when works for you\", and records the booking request for TEMPO to write."],
+  ["human-handoff-echo","Gets a human the same minute for a complaint, distress, legal language, and anything about rates, approval, eligibility or terms — then stops handling the issue. Stays silent on any thread a human has taken over, and flags the escalation nobody answered and the hot conversation gone quiet as neglect.",{f:true}],
+  ["reply-intake-echo","Classifies every reply to any agent's outreach — EMBER's, RELAY's, TEMPO's, FORGE's — and the sender stops working that thread. A reschedule becomes a booking request; attachments go to FORGE; a partner or outside party's reply goes to the loan officer; a sender not in the CRM goes to SCOUT to create the record. A borrower's file question is answered only in QUILL's approved milestone wording."],
+  ["first-touch-sender-echo","Sends what ECHO starts — first-touch texts and no-show follow-ups — carrying an approval ID through the gated send tool, and handles what the gate returns: a quiet-hours hold that waits, a suppression or exit-hold refusal that stands, a number whose registration RELAY has paused, a revoked library entry, and a paused AEGIS where nothing goes out at all."],
+  ["public-comment-reply-echo","Answers a public comment on the company's posts and ads only from QUILL's approved public-reply templates, never addresses a person's own situation in public, and moves anything personal to a private channel. Spam and abuse get no reply and are flagged through ATLAS for the page's owner; no comment is ever hidden or deleted.",{d:"which comment types are safe to answer in public at all, and the invitation-to-a-private-channel wording each platform suits"}],
+  ["structured-writeback-echo","Writes every exchange back to the record as structured data — intent, the answers to PULSE's questions, exit reason, opt-out event, booking request — rather than a transcript dump, so ATLAS's brief, PULSE and LEDGER can all read it."]
+ ]},
+
+{id:"VOX",n:"07",title:"Receptionist",div:"Revenue",auto:"L3",cap:false,
+ mandate:"Every call answered, placed with the record already loaded, transferred with a spoken brief, and back in the CRM as structured data seconds after hangup.",
+ skills:[
+  ["call-open-disclosure-vox","Opens every call with the AI disclosure the contact's jurisdiction requires, word for word from AEGIS's disclosure builder — never paraphrased, never shortened, never after the pleasantries — and delivers the recording notice with it."],
+  ["recording-consent-handler-vox","Handles recording consent by jurisdiction, and knows what to do when consent is refused: what stops, what continues, and what the record shows.",{l:true,d:"the one-party and all-party rules the company operates under, and the script for a refusal"}],
+  ["immediate-transfer-vox","Transfers the moment a human is asked for — no retention attempt, no \"what is this regarding\" — and starts the transfer before the brief, never holding the caller while it talks. When nobody answers, it says so, takes a message and a callback number, and lets the caller end the call.",{l:true,f:true,t:[26]}],
+  ["warm-transfer-brief-vox","Speaks the brief on the private leg while the line connects, so no human starts a call cold.",{f:true,d:"what the brief carries and in what order — who is on the line, why they called, what the file shows, what was already promised, and anything compliance-sensitive said"}],
+  ["inbound-answer-vox","Answers within two rings with the caller recognised and their history in context, and when context has not loaded, takes the call without claiming to recognise anyone. Marks a caller who is not in the CRM as new, for SCOUT to create the record.",{d:"the call types beyond borrowers — a real estate agent, title or escrow, an appraiser, a servicing question, a solicitor — and what each one gets"}],
+  ["outbound-dialer-vox","Places speed-to-lead, no-show and campaign calls on an approved script the voice platform checks first, and places none of them until the record context has loaded. Finishes a live call safely and starts nothing new when ATLAS halts on a budget; places nothing at all while AEGIS is paused.",{t:[25],d:"the attempt cadence per call type, and which number the call shows"}],
+  ["voicemail-drop-governor-vox","Detects voicemail, drops only an approved message, and reads the roster-wide counter first — one per contact per day across every agent, whoever placed the call."],
+  ["in-call-escalation-vox","Handles what a script cannot: complaint, distress, legal language, a question about approval, eligibility, rates as an offer or terms, or a gap the scripts do not cover. Transfers or takes a message, never discusses a legal matter, never ends the call on the caller, and never improvises an answer.",{f:true}],
+  ["post-call-structurer-vox","Turns every call into structured CRM data within seconds of hangup: transcript, summary, sentiment, objections raised, commitments made by either party, disposition and next action — read by ATLAS for routing, PULSE for scoring, TEMPO for tasks and LEDGER for reporting.",{f:true,d:"the disposition taxonomy — connected, voicemail, wrong number, transferred, booked, not interested, callback requested, and the rest"}]
+ ]},
+
+{id:"TEMPO",n:"08",title:"Scheduling Coordinator",div:"Revenue",auto:"L4",cap:false,
+ mandate:"Owns time — availability, bookings, reminders, no-shows and every human to-do — and is the only agent that writes to a calendar.",
+ skills:[
+  ["availability-engine-tempo","Reads live availability at the moment of booking from each person's own connected calendar — never from trigger data, which can lag fifteen minutes — respecting working hours, buffers, travel time and time zones.",{d:"the mortgage appointment types and their real lengths: first consultation, application, document review, rate-lock discussion, closing, and the buffer each one needs"}],
+  ["booking-writer-tempo","Writes the event on the calendar of the person the appointment is with, moves it on a reschedule and marks it cancelled rather than deleting anything. Adds staff through the calendar's own tools, which refuse anyone outside WARDEN's staff directory, and invites an outside guest only through the gated invite tool. Rebooks a leaver's appointments onto the named successor."],
+  ["confirmation-and-reminder-tempo","Sends confirmations and reminders from AEGIS-approved templates through the gated tools, filled only with record fields, and holds rather than rewording when the gate refuses — a revoked approval ID, a paused SMS number, quiet hours.",{t:[4]}],
+  ["no-show-recovery-tempo","Recovers a no-show within minutes rather than the next day, when the odds have already collapsed, and hands what it cannot recover to ATLAS for ECHO or VOX.",{f:true,t:[3]}],
+  ["task-generator-tempo","Generates human to-dos from VOX's commitments, ECHO's exchanges, FORGE's stage changes and deadlines and PULSE's fast-track flags, with a real owner, a real due date and the context attached — CRM to-dos only; agent work is ATLAS's."],
+  ["overdue-chaser-tempo","Chases overdue tasks on a cadence and escalates the ones blocking money — a lock, a closing, a condition — the same minute, through ATLAS to SOPHIA rather than messaging anyone directly.",{t:[25]}],
+  ["focus-block-defender-tempo","Protects deep-work blocks from low-value meetings: offers the next real slot instead, keeps a contact's bookable slots outside the block, and puts an insistent staff member's conflict to the person who owns the block."],
+  ["multi-party-coordinator-tempo","Coordinates a booking across every outside participant without the email chain — borrower, agent, title or settlement, appraiser — collecting availability only through approved wording and the gated invite tool.",{d:"who owns scheduling the closing with the settlement agent, and how availability is gathered from a party with no calendar connected"}]
+ ]},
+
+{id:"FORGE",n:"09",title:"Loan Processing Coordinator",div:"Revenue",auto:"L3, L2 on anything touching terms",cap:true,
+ mandate:"Runs the file from won to closed, including every document in it — and changes nothing about the terms.",
+ skills:[
+  ["stage-gate-and-dwell-forge","Enforces stage entry and exit criteria, blocking an invalid transition and naming the requirement that is unmet, and escalates a file the moment it exceeds its expected dwell time, naming the item that is blocking it.",{t:[9],d:"the stage set where a company has not specified its own — application, processing, underwriting, conditional approval, clear to close, closing, funded — and what each stage requires to be entered and left"}],
+  ["document-classifier-forge","Classifies and files every upload to the right record and category without a human choosing a folder, wherever it arrives from — the mailbox it shares with ECHO, a connected storage folder, an e-signature completion, or COMPASS's migration.",{f:true,d:"the document taxonomy — pay stubs, W-2s, tax returns, bank statements, verification of employment, appraisal, title commitment, insurance binder, purchase contract, disclosures — and what each one is for"}],
+  ["field-extractor-forge","Extracts structured data into the right fields and flags a low-confidence extraction for the loan officer instead of guessing.",{t:[10]}],
+  ["condition-tracker-forge","Parses requirement and condition lists into individually tracked items with a plain-English translation for the customer, and verifies completeness and legibility before an item is marked satisfied.",{f:true,d:"the condition classes — prior to approval, prior to documents, prior to funding, at closing — and which ones stop the file"}],
+  ["file-first-chaser-forge","Checks the file before it chases, because re-requesting a document that is already there is the fastest way to lose a customer's confidence, then chases each outstanding item on its own cadence from an approved template.",{t:[25],d:"the age limits that make a document stale — pay stubs, bank statements, appraisals, title work — as the lender's own guidelines set them"}],
+  ["deadline-watcher-forge","Watches every deadline — rate-lock expirations, document and approval expirations, contingencies, appraisal and inspection windows, closing dates — and escalates at 72, 48 and 24 hours, every time, never silently.",{f:true,d:"the edge cases: a deadline found inside 24 hours, one already passed, and one landing on a weekend or a holiday"}],
+  ["terms-change-stop-forge","Stops on anything touching terms, rates, locks or fees — changed or merely requested — escalates it to a human, and sends nothing about it until the human has made the change and the record shows it. Never extends, changes or re-locks a rate.",{l:true}],
+  ["version-compare-forge","Extracts, compares and flags what changed between document versions, and declines every question about what an agreement means or whether it is enforceable — that goes to a human.",{l:true}],
+  ["e-signature-router-forge","Routes envelopes and signature reminders through the gated e-signature tool, tracks completions as they arrive as triggers, and escalates a declined, voided or expired envelope to the loan officer instead of resending it."],
+  ["access-and-retention-forge","Enforces WARDEN's role model at document level, redacts fields a role should not see, and manages versions, expiry dates and retention schedules — flagging a record due for disposal for a human to dispose of, because FORGE never deletes."],
+  ["cited-document-answers-forge","Answers questions across the whole document set with the source cited, within what the asking role is allowed to see."],
+  ["milestone-and-closeout-forge","Pushes milestone updates to every outside party so nobody has to chase status, runs the pre-close and post-close sequences, and ends at the handoff: the closed file to EMBER for lifetime ownership, and a withdrawn, denied or suspended file to EMBER as closed-lost with the reason recorded and every chase stopped."]
+ ]},
+
+{id:"EMBER",n:"10",title:"Database Reactivation Coordinator",div:"Revenue",auto:"L3",cap:false,
+ mandate:"Keeps every past lead and past customer on a clock, and reaches out only when there is a genuine, specific, defensible reason to.",
+ skills:[
+  ["next-touch-clock-ember","Holds a next-touch date and a stated reason for every dormant contact, and defines the window inside which no agent may reach a dormant contact unprompted twice. Moves a date only as the rule allows when the gate refuses a touch — never around it.",{f:true,t:[24]}],
+  ["trigger-monitor-ember","Monitors each contact's own trigger conditions — market movement against their known position, value changes, life events, anniversaries, eligibility windows — and fires only when the math genuinely benefits them, with the math attached. Fires no market-based trigger while LEDGER's data is stale, and escalates a targeting pattern by geography, language or a proxy to AEGIS.",{f:true,t:[5,6],d:"the trigger playbook: mortgage insurance removal, an ARM approaching reset, FHA to conventional, cash-out against equity, rate-and-term break-even, a maturing lock-in"}],
+  ["figure-disclosure-route-ember","Routes any message carrying a rate, payment, term or cost figure through AEGIS's disclosure builder automatically, and never drops the number to dodge the rule. The borrower's side of the math comes from the closed file FORGE handed over — a contact with no closed file gets no borrower-specific figures, and a position estimate stays an estimate.",{l:true}],
+  ["adaptive-nurture-ember","Runs long-horizon nurture that adapts to engagement instead of marching through a fixed calendar, and stops working a thread the moment the contact replies — every reply is ECHO's."],
+  ["review-request-ember","Asks for a review once, at peak emotion, without incentives, and without routing an unhappy customer away from a public platform. Stops the ask for that customer when ECHO escalates an unhappy reply as a complaint.",{d:"when peak emotion actually is for a mortgage — at funding, at the keys, or after the post-close file is complete"}],
+  ["referral-ask-ember","Asks for referrals with a specific, record-grounded reason rather than the generic request that converts near zero."],
+  ["partner-nurture-ember","Nurtures partners and sphere with real value — approved market reports, co-marketing, their own business promoted — never \"just checking in\". Holds any partner touch while AEGIS answers a co-marketing or compensation question, uses a partner's headshot only as supplied with their written consent, and flags a partner who has gone quiet.",{d:"what a real estate agent, a builder, a financial adviser and a past borrower each actually value"}],
+  ["closed-lost-recycler-ember","Takes the withdrawn, denied and suspended files FORGE hands over with their reasons, and the past borrowers COMPASS migrates, and recycles a contact when the reason they were lost has expired.",{d:"which loss reasons expire and when — credit repair, seasoning after an event, a sold property, a rate that has moved back"}]
+ ]},
+
+{id:"QUILL",n:"11",title:"Content Writer",div:"Marketing",auto:"L2",cap:false,
+ mandate:"Writes everything the company says and owns how it sounds — with compliance built into generation rather than bolted on at review.",
+ skills:[
+  ["voice-and-tone-keeper-quill","Maintains the voice-and-tone half of the brand record as account settings every agent reads, built from the company's own samples at onboarding, so the brand's voice is defined once rather than re-described in every request."],
+  ["channel-copy-writer-quill","Produces copy for every channel in that voice, at volume, each variant carrying a stated hypothesis so LEDGER can measure something real.",{t:[19],d:"the products and audiences to write for — conventional, FHA, VA, USDA, jumbo; first-time buyer, move-up, refinance, veteran, self-employed — and the season each one sells in"}],
+  ["script-writer-quill","Writes VOX's call, no-show, campaign and voicemail scripts and the approved milestone wording ECHO and VOX use for a borrower's status question — wording that can never be heard as a decision."],
+  ["template-library-curator-quill","Builds and prunes the library every sending agent draws on — ECHO's objection library and response templates, VOX's scripts, TEMPO's confirmations and reminders, FORGE's document requests and milestone updates, EMBER's and RELAY's content, ECHO's public-reply templates for comments — replacing what underperforms through review first, then asking AEGIS to revoke the retired ID, so no agent is ever left without wording.",{d:"the versioning scheme, so an entry's history is legible after a year of edits"}],
+  ["gap-and-revision-drafter-quill","Drafts against the gaps other agents flag — a question ECHO's library does not cover, a script VOX lacks, wording TEMPO, FORGE, EMBER or RELAY needs, a replacement for a revoked ID — and revises inside the same task when AEGIS requests changes, up to the round cap, after which the Account Owner decides.",{f:true}],
+  ["generation-screen-pass-quill","Applies the protected-class and steering constraints while writing, never through a proxy, runs every draft through the generation screen as it is produced, and submits nothing the screen flags — and nothing at all while the screen is down."],
+  ["disclosure-placeholder-attach-quill","Marks the placeholder wherever a rate, payment, term or cost figure, a licence identifier or another required disclosure belongs, so AEGIS's builder fills it live from the user's profile — never hand-written, never hardcoded, never stale. On a visual, QUILL marks it and CANVAS places it, so it appears once."],
+  ["co-branded-copy-quill","Writes the copy for per-user co-branded variants from WARDEN's profile records live, and produces no variant at all when a field is missing rather than leaving a blank credential."],
+  ["pillar-cluster-seo-quill","Writes SEO content on the pillar-cluster model at market and neighbourhood granularity, for humans first and retrieval second, delivered with its approval ID for a person to publish — the roster does no web publishing."],
+  ["localizer-quill","Localises and translates without losing the persuasive structure of the original, including the library entries ECHO needs in each language the company answers in."]
+ ]},
+
+{id:"CANVAS",n:"12",title:"Graphic Designer",div:"Marketing",auto:"L2",cap:false,
+ mandate:"Owns what the company looks like, and treats an image of unknown origin as the liability it is.",
+ skills:[
+  ["visual-identity-keeper-canvas","Maintains the visual identity half of the brand record — logo usage, palette, typography, imagery direction — set from the company's own logos, colours, fonts and images at onboarding, and changed only on an instruction routed to CANVAS."],
+  ["creative-generator-canvas","Generates ad visuals, social graphics, carousels, covers, one-pagers, decks and video templates through allowlisted tools, running every draft through the generation screen and producing nothing rather than a placeholder when a tool or the screen is down.",{d:"the mortgage visual genres that actually get used — rate and programme explainers, first-time-buyer guides, neighbourhood snapshots, partner co-marketing, milestone celebrations that show no client"}],
+  ["library-ops-canvas","Runs the content library: tagging, versioning, deduplication, expiry by archiving or marking rather than deleting, and a search before anything new is generated, so an approved asset is reused as it stands where one fits — a new size or crop is a changed asset that needs its own review.",{t:[23]}],
+  ["likeness-guard-canvas","Refuses to generate, edit or use the likeness of a real, identifiable person, and proposes a non-identifiable alternative instead — making it only if ATLAS assigns it. The exceptions are narrow: a staff member's own profile photo with consent recorded on their profile and its own approval ID, and a partner's own headshot supplied with the partner's written consent. Licensed stock is used only where no identifiable person appears, and a generated person or home is never presented as a real client, staff member, partner or listing.",{l:true,f:true}],
+  ["rights-ledger-canvas","Records every image's source and usage rights, and refuses to use one whose rights are unknown. Withdraws an image whose licence expired or whose consent was withdrawn and flags it so AEGIS revokes the approval ID of every asset containing it — and for an asset already handed out for people to share, so SOPHIA tells them to stop using it. Prepares a replacement before a recorded licence lapses.",{l:true,t:[21]}],
+  ["demographic-imagery-block-canvas","Refuses imagery direction that implies a preferred demographic, a protected-class reference or a proxy for one, and escalates it to AEGIS rather than adjudicating it.",{l:true}],
+  ["brand-consistency-check-canvas","Checks every visual asset against the visual identity before it is submitted for review, whoever requested it, and revises off-brand work rather than letting it reach AEGIS. A conflict with a requester's direction, or with a partner's own brand rules, goes back to the requester rather than into the asset.",{t:[23],d:"the co-branding lockup rules for the routine partner brand clash — whose logo leads, minimum sizes, clear space"}],
+  ["format-spec-adapter-canvas","Maintains per-channel format specs so one concept ships correctly sized to every placement, and reads LEDGER's performance by placement for what to reuse and what to retire.",{t:[23]}],
+  ["co-branded-visual-canvas","Produces the visual for per-user co-branded variants — photo, logo lockup, credential placement — from profile records live, places the disclosure builder's output where the spec puts it, and produces no variant when a photo, a consent or a field is missing.",{d:"a fast expiry for any asset that shows a rate"}]
+ ]},
+
+{id:"RELAY",n:"13",title:"Digital Campaign Specialist",div:"Marketing",auto:"L2",cap:false,
+ mandate:"Runs the send and the publish — audience, deliverability, timing, testing and spend, across email, SMS, the company's own social pages and its paid social ads.",
+ skills:[
+  ["live-segment-builder-relay","Builds audiences from CRM data with segment logic that stays live rather than freezing at export, excluding borrowers with a file in process and closed borrowers after FORGE's handoff, and stops the build and escalates any rule that selects by a protected class or a proxy."],
+  ["deliverability-stack-relay","Owns domain authentication, sender reputation, warmup for new domains and numbers, list hygiene, and bounce and complaint handling — pausing the affected sends when a rate crosses the line or a reputation drops.",{f:true,t:[7],d:"hard versus soft bounce handling, the internal early-warning level below the provider's own limit, the warmup schedule, and who restarts sending after a reputation pause"}],
+  ["carrier-registration-manager-relay","Registers every company SMS number and keeps its carrier status current — the status the gated send tools read to refuse every agent's SMS from a number that was filtered or rejected, until RELAY records it restored.",{f:true,d:"the registration path itself: brand and campaign registration, toll-free verification, and what a rejection typically takes to clear"}],
+  ["per-contact-send-timing-relay","Schedules against each contact's own best time rather than one blast hour, inside AEGIS's quiet hours in the contact's timezone."],
+  ["social-calendar-publisher-relay","Plans the company's organic social calendar and publishes each approved post to the company's own pages through the gated publish tool, sized to its placement from CANVAS's specs. Never posts to a person's own profile, and never replies to what comes back — comments and messages are ECHO's.",{d:"which mortgage post types carry a figure and so need the disclosure builder, and what each platform expects of a lender's page"}],
+  ["paid-campaign-launcher-relay","Sets up each paid social campaign on the company's ad account in the platform's credit or housing category, with the budget set to exactly the amount a board user approved and the audience AEGIS passed — holding the launch until both exist. Never raises spend, never touches billing, a payment method or a spend limit, and never resubmits an ad the platform rejected with its content or targeting altered to get through.",{l:true,f:true,d:"each ad platform's credit and housing category and what it restricts, and the campaign objectives that fit a mortgage lead campaign"}],
+  ["ad-audience-builder-relay","Builds each paid audience from the ad platform's own targeting options — never from contact data uploaded from the CRM, never a lookalike built from it, never a targeting option the credit or housing category restricts — and submits it with its ad for AEGIS's review before launch.",{l:true}],
+  ["spend-pacer-relay","Watches each paid campaign's spend against the amount approved and the pace it was planned at, and pauses the campaign and escalates through ATLAS when spend runs ahead or the platform reports a charge the approval does not cover."],
+  ["live-content-takedown-relay","Takes down every live post and pauses every live ad carrying an approval ID AEGIS revoked, and does the same before a lapsing image licence runs out — through the gated publish tool, keeping the record of what was live, where and when, and requesting a replacement through ATLAS.",{f:true}],
+  ["paced-sender-relay","Sends only content carrying an approval ID, through the gated tools, paced against Composio's and each provider's rate limits so a campaign slows rather than failing half-sent. Keeps a record of who already received the send, so a budget halt, a provider error, a revoked ID or a paused AEGIS pauses the campaign and never restarts it from the beginning.",{t:[8]}],
+  ["statistical-test-runner-relay","Runs A/B and multivariate tests — across sends, posts and ads — to a real threshold and refuses to declare a winner on noise.",{t:[7]}],
+  ["cross-campaign-suppression-relay","Plans suppression across campaigns so one contact never receives three unrelated sends in a day — a plan that never overrides AEGIS's per-message rules, which run whatever the plan allows."],
+  ["delivery-event-reader-relay","Reads delivery status, bounces, complaints and unsubscribes back from the connected sending accounts and records each opt-out event at once for the suppression list; reads reach, engagement, spend and lead-form volume back from the connected pages and ad accounts."],
+  ["cost-attached-reporting-relay","Reports per-campaign performance to LEDGER with cost attached — ad spend included — and the test results beside it, for email, SMS, posts and ads alike."]
+ ]},
+
+{id:"CIRCUIT",n:"14",title:"Workflow & Integrations Specialist",div:"Operations",auto:"L2",cap:false,
+ mandate:"Builds the workflows and the integrations — and builds the gates that carry AEGIS's rules, never the rules themselves.",
+ skills:[
+  ["workflow-compiler-circuit","Turns a plain-language description into a working multi-step automation with branching, conditions and delays — and refuses any step that does another agent's work: a stage change, a lead assignment, a calendar write, a consent record, anything touching terms.",{d:"the mortgage milestone automations worth building first, and how they map onto the loan origination system's own fields"}],
+  ["historical-backtest-circuit","Tests every workflow against historical data before activation and reports what would have happened — with no exception for onboarding, however urgent the go-live.",{f:true,t:[29]}],
+  ["automation-monitor-circuit","Watches live automations for errors, infinite loops, conflicting triggers and silent failures, and Composio's execution logs for failed tool calls and triggers that stopped firing, then repairs them — asking for a reconnect where repair needs one.",{t:[20],d:"the retry, replay and time limits, and the rollback procedure when a repair fails"}],
+  ["gated-tool-builder-circuit","Builds the gates as software: a gated send tool wrapping each sending toolkit, the gated publish tools in RELAY's session — checking an ad's category, its passed audience and a budget no higher than the board approved — the gated invite tool, the gated e-signature tool, the attendee check wrapped around TEMPO's calendar tools, and the generation screen. Each carries AEGIS's rules, adds the unsubscribe link, refuses an exit-held contact and an unregistered number, and fails closed when the rules cannot load or AEGIS is paused.",{f:true}],
+  ["gate-change-submission-circuit","Submits every change to a gated tool, the attendee check or the generation screen as a task with an AEGIS review stage, tested against the rule set first, and deploys only after AEGIS passes it."],
+  ["trigger-and-tool-builder-circuit","Creates and maintains Composio triggers, the direct webhooks that replace a polling path SCOUT cannot wait on, and custom tools where a toolkit has no action for what the work needs. Pins toolkit versions and tests a new one against historical runs before moving to it.",{d:"which mortgage systems have no toolkit at all — the loan origination system, the pricing engine, some lead portals — and what a custom tool for each has to cover"}],
+  ["field-architecture-keeper-circuit","Keeps the custom field model coherent as the company grows, builds the form logic SCOUT specifies, and escalates any proposed field that could encode a protected class or a proxy before building it.",{d:"the change control for a rename, so a field every other agent reads does not break silently"}],
+  ["manual-work-detector-circuit","Spots the repeated manual work in user behaviour and proposes the automation that eliminates it, to the person doing it."],
+  ["tool-allowlist-spec-circuit","Names the exact tool slugs a workflow needs for WARDEN to propose and the board to apply — and never a native send, publishing, public-share or unneeded destructive tool in any session's list, or a gated publish tool outside RELAY's."],
+  ["document-and-retire-circuit","Documents every workflow in plain language so the company is never hostage to whoever built it, and retires the automations that no longer fire or no longer matter."]
+ ]},
+
+{id:"LEDGER",n:"15",title:"Operations & Market Analyst",div:"Operations",auto:"L1 advisory by design",cap:true,
+ mandate:"Tells the truth, including when the truth is that a channel leadership is invested in is losing money — and never acts on it.",
+ skills:[
+  ["attribution-and-cost-ledger","Runs full-funnel attribution from spend to closed revenue on the platform's own event stream as ground truth rather than an ad platform's self-report, and reports cost per closed deal by source, campaign, person and product — with AI operating cost from the usage meter as a real line item, not an overhead footnote.",{d:"the attribution model itself — first touch, last touch or position-based — and how a long mortgage sales cycle is credited"}],
+  ["cohort-analysis-ledger","Judges each month's leads against the right maturity curve by lead vintage, instead of against last month's closings."],
+  ["pipeline-forecaster-ledger","Forecasts the pipeline with confidence bands calibrated on the company's own conversion history and adjusted for current conditions, every projection labelled an estimate with its assumptions visible.",{l:true,d:"the mortgage analytics that make a forecast real — the lock pipeline, fallout and pull-through, purchase versus refinance mix, and turn times"}],
+  ["anomaly-detector-ledger","Surfaces a dead source, a collapsing contact rate, a stalled stage or a two-sigma move on any person within a day, with evidence kept separate from hypothesis — business metrics and stage-level stall patterns only; access, automation and compliance anomalies belong to other agents."],
+  ["market-conditions-feed-ledger","Tracks conditions at the granularity the business works in — metro, county, ZIP, neighbourhood: inventory, days on market, absorption, price movement, rate movement — cites every source, labels a stale figure with its last-updated time, and feeds EMBER's trigger logic as an input to EMBER's decision, never as an action of its own.",{l:true,f:true,t:[5],d:"the named sources and how each is pulled — rate surveys, MLS or public records, county data — and the freshness each one can be trusted to"}],
+  ["competitor-watch-ledger","Monitors competitor ads, offers, positioning, hiring and territory expansion."],
+  ["territory-opportunity-finder-ledger","Finds underserved territories, product gaps and segment opportunities from the company's own conversion data against market data — and holds any geographic or segment recommendation until AEGIS has ruled on whether it could map to a protected class."],
+  ["client-ready-market-report-ledger","Builds the market reports the team can actually send, and returns each one — and every refresh — for QUILL's client-facing wording and AEGIS's approval before anyone sends or shares it.",{l:true}],
+  ["coaching-scorecards-ledger","Writes team scorecards as coaching inputs naming the specific behaviour to change, never as a leaderboard nobody acts on.",{d:"who each scorecard goes to when a company has no branch manager"}],
+  ["executive-brief-ledger","Writes the daily brief: under four hundred words, decision first, carrying anything in the market that changes the plan, and honest enough to say when nothing needs a decision."]
+ ]},
+
+{id:"WARDEN",n:"16",title:"Access & Security Administrator",div:"Operations",auto:"L2",cap:false,
+ mandate:"Runs the back office of the platform itself — users, roles, keys, connections and the security posture around all of it.",
+ skills:[
+  ["day-one-provisioner-warden","Provisions a new person with the right role, branch, territory and module access on day one, and keeps the staff directory the calendar attendee check reads.",{d:"the role templates a mortgage shop actually has — loan officer, assistant, processor, closer, branch manager — and how licence states limit what each one may be routed"}],
+  ["same-day-offboarding-warden","Revokes platform access and disables every connected account under a leaver's ID the same day — and revokes platform access regardless when Composio's administrative surface is down, escalating the disable as urgent. Reports the departure so the Account Owner names who takes over the leads, files and appointments.",{f:true}],
+  ["permission-auditor-warden","Audits the permission model for over-privileged accounts and access that no longer matches someone's job.",{t:[12],d:"who may request access for someone else, and what approval that needs"}],
+  ["grant-and-policy-auditor-warden","Audits Paperclip grants against the roster's grant map and every Composio session against its allowlist — above all an agent holding agents:configure, an agent other than AEGIS holding audit:view_agent_actions, or a session that can reach a native send, publishing or destructive tool, a gated publish tool outside RELAY's, or an ad account's billing. Files a proposed change to the board, which applies it.",{f:true}],
+  ["connected-account-map-warden","Keeps the map of which connected account sits under which ID, with a named owner recorded for every company-level connection before its Connect Link goes out — and never picks that owner itself. Flags a shared account connected under a personal ID and a personal connection left behind by someone who has gone, and proposes auth-config changes for the board."],
+  ["key-rotation-warden","Manages the platform's API keys including the Composio project key, with rotation reminders and immediate revocation on exposure — tracking app credentials as connected accounts held by Composio, never as secrets an agent could read.",{t:[12],d:"the project-key replacement sequence, so a rotation does not strand every agent's session"}],
+  ["anomalous-access-monitor-warden","Watches for unusual export volume, off-hours logins, bulk record access and bursts of tool calls in Composio's execution logs, and escalates the same day with the evidence.",{t:[12],d:"what authority WARDEN has to suspend an account mid-incident, and what needs the Account Owner first"}],
+  ["org-and-routing-rules-warden","Maintains branch and team structure, routing rules, territory assignment and module activation as the org changes — holding any rule that could map to a protected class until AEGIS rules on it — and watches the org tree for an invalid reporting chain or a paused manager, which goes to the board when the paused agent is ATLAS or SOPHIA."],
+  ["profile-and-consent-records-warden","Keeps the profile records QUILL and CANVAS read for co-branded variants, attaches a staff member's new photo and sends it on for screening and review, and records photo-use consent exactly as the person gives it — and the withdrawal the moment they take it back."],
+  ["admin-audit-trail-warden","Maintains the administrative record of who changed what, when and why, read through the platform's administrative-changes view rather than the compliance log — and names AEGIS's record beside it, since AEGIS reconciles WARDEN's own actions."]
+ ]},
+
+{id:"COMPASS",n:"17",title:"Onboarding & Adoption Specialist",div:"Operations",auto:"L2",cap:false,
+ mandate:"Owns the first thirty days and the adoption curve after them — by doing the setup design itself instead of handing over a checklist.",
+ skills:[
+  ["onboarding-interview-compass","Interviews the business through SOPHIA — model, team structure, sales process, the tools being replaced — and turns the answers into the workspace specification.",{f:true,d:"the mortgage content the interview has to cover: retail, broker or correspondent channel, licensed states, product mix, the loan origination system, the point-of-sale and pricing engine, lead vendors, and who does what in the shop"}],
+  ["workspace-spec-writer-compass","Writes each part of the configuration for the agent that owns it — users, roles, branches, permissions, modules, routing and territories to WARDEN; fields, form logic and automations to CIRCUIT; pipeline stages to FORGE; form fields, copy and placement to SCOUT; voice and tone to QUILL and the visual identity to CANVAS — and writes into none of them itself, however much time it would save. Routing that could map to a protected class goes to AEGIS first."],
+  ["migration-mapper-compass","Maps and cleans the previous system's data with field mapping and deduplication, writes the report of what came over and what did not, and hands each set to its owner: contacts to SCOUT, the old system's opt-outs and do-not-contact records to AEGIS's suppression list before any migrated contact can be reached, in-process files to FORGE, past borrowers to EMBER, templates to QUILL. Consumer credit data is left behind, and the report names only the excluded fields, never their contents.",{f:true}],
+  ["connection-plan-compass","Works out which accounts each agent needs and under which ID — shared under the company's, personal under each person's — sends company-level accounts to WARDEN to record an owner before any link goes out, and the company's SMS numbers to RELAY to register before any agent sends from them.",{d:"who owns setting up the voice platform's phone numbers, which sit outside Composio"}],
+  ["hire-request-builder-compass","Submits each agent hire to the board's approval queue with its reporting line, budget and permission grants stated — never a request that would duplicate or replace AEGIS, or set an agent above its policy ceiling."],
+  ["shadow-mode-runner-compass","Runs every new agent in shadow mode and files the readiness report to the board, where go-live is decided — and where a failed AEGIS red-team run stands as a block unless the board explicitly overrides it.",{f:true,t:[11]}],
+  ["in-context-training-compass","Delivers the tip through SOPHIA when the feature becomes relevant, rather than in a video nobody watches."],
+  ["adoption-monitor-compass","Watches adoption per person and per module and intervenes, through SOPHIA, on the specific person who stopped using the specific thing — then repeats the whole sequence for every new person the company adds.",{d:"the 30-day milestones that count as adopted, and what \"stopped using\" means for each module"}]
+ ]}
+];
+
+const THRESHOLDS = {
+ 1:"Intent and fit scales, disposition cut-offs, minimum coverage",
+ 2:"Judgment-pass criteria, conversation-score scale, promotion and demotion thresholds",
+ 3:"No-show recovery window",
+ 4:"Reminder schedule",
+ 5:"Market-data age before it counts as stale, per data type",
+ 6:"Reactivation benefit bar — rate drop, monthly saving, break-even",
+ 7:"Test significance: confidence level, minimum sample, minimum duration",
+ 8:"Paced resume rate after a provider error",
+ 9:"Expected dwell time per pipeline stage",
+ 10:"Extraction confidence threshold",
+ 11:"Shadow-mode exit criteria",
+ 12:"Key-rotation interval, access-review schedule, anomaly thresholds",
+ 13:"First-touch channel rule",
+ 14:"What counts as confidence dropping",
+ 15:"Budget amounts per contact, campaign and user",
+ 16:"The ten intents defined, the opt-out phrase list, and \"distress\"",
+ 17:"Duplicate-matching and junk criteria",
+ 18:"\"Ambiguous enough to confirm\", and the top-three ranking rule",
+ 19:"Channel length limits, reading level, variants per test",
+ 20:"Workflow rollback procedure",
+ 21:"Licence-expiry warning window",
+ 22:"Which kinds of task get a board user as an approval stage",
+ 23:"Brand-consistency criteria, library tag taxonomy, per-channel format specs",
+ 24:"\"Dormant\" — how long without activity, and at which stages",
+ 25:"Chase cadences and attempt limits",
+ 26:"Transfer target order and ring timeout",
+ 27:"Stall and loop definition between agents",
+ 28:"How early AEGIS files a budget override request",
+ 29:"Backtest pass criteria, and who confirms activation",
+ 30:"Which dispositions need a human's confirmation under the L2 cap"
+};
+
+const DIVS = ["Command","Revenue","Marketing","Operations"];
+const roster = document.getElementById("roster");
+const state = {div:"all", lock:false, first:false, q:""};
+
+const all = AGENTS.flatMap(a=>a.skills.map(s=>({a,s})));
+document.getElementById("cSkills").textContent = all.length;
+document.getElementById("cLocks").textContent  = all.filter(x=>x.s[2]&&x.s[2].l).length;
+document.getElementById("cFirst").textContent  = all.filter(x=>x.s[2]&&x.s[2].f).length;
+document.getElementById("cWait").textContent   = all.filter(x=>x.s[2]&&x.s[2].t).length;
+
+function skillMatches(a,s){
+  if(state.lock && !(s[2]&&s[2].l)) return false;
+  if(state.first && !(s[2]&&s[2].f)) return false;
+  if(state.q){
+    const hay=[a.id,a.title,a.mandate,s[0],s[1],(s[2]&&s[2].d)||""].join(" ").toLowerCase();
+    if(!hay.includes(state.q)) return false;
+  }
+  return true;
+}
+
+function skillNode(s){
+  const meta = s[2]||{};
+  const li=document.createElement("li");
+  if(meta.l) li.className="lock";
+  const head=document.createElement("div"); head.className="s-head";
+  const nm=document.createElement("span"); nm.className="s-name"; nm.textContent=s[0]; head.appendChild(nm);
+  if(meta.l){const b=document.createElement("span");b.className="s-lock";b.textContent="Interlock";head.appendChild(b);}
+  if(meta.f){const b=document.createElement("span");b.className="s-first";b.textContent="Build first";head.appendChild(b);}
+  li.appendChild(head);
+  const d=document.createElement("p"); d.className="s-desc"; d.textContent=s[1]; li.appendChild(d);
+  if(meta.d){
+    const p=document.createElement("p"); p.className="s-note dom";
+    const b=document.createElement("b"); b.textContent="Mortgage knowledge to write in — "; p.appendChild(b);
+    p.appendChild(document.createTextNode(meta.d)); li.appendChild(p);
+  }
+  if(meta.t){
+    const p=document.createElement("p"); p.className="s-note";
+    const b=document.createElement("b"); b.textContent="Waits on — "; p.appendChild(b);
+    p.appendChild(document.createTextNode(meta.t.map(n=>"#"+n+" "+THRESHOLDS[n].toLowerCase()).join(" · ")));
+    li.appendChild(p);
+  }
+  return li;
+}
+
+function agentCard(a,shownSkills){
+  const el=document.createElement("article"); el.className="agent";
+  const head=document.createElement("div"); head.className="a-head";
+  head.innerHTML='<span class="a-num">'+a.n+'</span><span class="a-name">'+a.id+'</span><span class="a-title">'+a.title+'</span>';
+  const meta=document.createElement("div"); meta.className="a-meta";
+  const t1=document.createElement("span"); t1.className="tag"+(a.cap?" cap":""); t1.textContent=a.auto; meta.appendChild(t1);
+  const t2=document.createElement("span"); t2.className="tag"; t2.textContent=shownSkills.length+" skills"; meta.appendChild(t2);
+  head.appendChild(meta); el.appendChild(head);
+  const m=document.createElement("p"); m.className="a-mandate"; m.textContent=a.mandate; el.appendChild(m);
+  const path=document.createElement("p"); path.className="a-path";
+  path.textContent="skills/"+a.div+"/"+a.id+" ("+a.title+")/…";
+  el.appendChild(path);
+  const ul=document.createElement("ul"); ul.className="skills";
+  shownSkills.forEach(s=>ul.appendChild(skillNode(s)));
+  el.appendChild(ul);
+  return el;
+}
+
+function render(){
+  roster.textContent="";
+  let total=0;
+  DIVS.forEach(d=>{
+    if(state.div!=="all" && state.div!==d) return;
+    const group=AGENTS.filter(a=>a.div===d)
+      .map(a=>({a,skills:a.skills.filter(s=>skillMatches(a,s))}))
+      .filter(x=>x.skills.length);
+    if(!group.length) return;
+    const n=group.reduce((t,x)=>t+x.skills.length,0); total+=n;
+    const sec=document.createElement("section"); sec.className="div-block";
+    const h=document.createElement("div"); h.className="div-head";
+    h.innerHTML='<h2>'+d+'</h2><span>'+group.length+' agents · '+n+' skills</span>';
+    sec.appendChild(h);
+    group.forEach(x=>sec.appendChild(agentCard(x.a,x.skills)));
+    roster.appendChild(sec);
+  });
+  document.getElementById("empty").hidden = total>0;
+  document.getElementById("count").textContent = total+" of "+all.length+" skills";
+}
+
+function renderThresholds(){
+  const body=document.getElementById("threshBody");
+  Object.keys(THRESHOLDS).map(Number).sort((a,b)=>a-b).forEach(n=>{
+    const users=all.filter(x=>x.s[2]&&x.s[2].t&&x.s[2].t.includes(n)).map(x=>x.a.id+" · "+x.s[0]);
+    const tr=document.createElement("tr");
+    const td1=document.createElement("td"); td1.className="n"; td1.textContent="#"+n;
+    const td2=document.createElement("td"); td2.textContent=THRESHOLDS[n];
+    const td3=document.createElement("td"); td3.className="who"; td3.textContent=users.length?users.join(", "):"—";
+    tr.append(td1,td2,td3); body.appendChild(tr);
+  });
+}
+
+document.querySelectorAll('.chip[data-filter]').forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    state.div=btn.dataset.value;
+    document.querySelectorAll('.chip[data-filter]').forEach(b=>b.setAttribute("aria-pressed", b===btn?"true":"false"));
+    render();
+  });
+});
+const lockBtn=document.getElementById("lockOnly");
+lockBtn.addEventListener("click",()=>{state.lock=!state.lock;lockBtn.setAttribute("aria-pressed",state.lock);render();});
+const firstBtn=document.getElementById("firstOnly");
+firstBtn.addEventListener("click",()=>{state.first=!state.first;firstBtn.setAttribute("aria-pressed",state.first);render();});
+document.getElementById("search").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();render();});
+const themeBtn=document.getElementById("themeToggle");
+themeBtn.addEventListener("click",()=>{
+  const dark=document.documentElement.getAttribute("data-theme")==="dark"
+    || (!document.documentElement.hasAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
+  document.documentElement.setAttribute("data-theme", dark?"light":"dark");
+  themeBtn.setAttribute("aria-pressed", String(!dark));
+});
+
+render();
+renderThresholds();
+</script>

@@ -1,0 +1,547 @@
+<title>17-Agent Roster</title>
+<meta name="description" content="The seventeen agents of the Mortgage CRM small-teams company, as set by handbook version 6.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#EEF0F0;
+  --card:#F8F9F8;
+  --ink:#181A1B;
+  --ink-2:#3E4345;
+  --muted:#6B7173;
+  --line:#D9DCDB;
+  --line-strong:#B4B9B8;
+  --claret:#7A1E2A;
+  --claret-ink:#5C1420;
+  --claret-soft:#F1DCDE;
+  --flag:#6E4C0C;
+  --flag-soft:#EDE2C4;
+  --amber:#7F5A11;
+  --amber-soft:#F3EDDC;
+
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131413;
+    --card:#1B1C1B;
+    --ink:#E7E9E8;
+    --ink-2:#BBBFBC;
+    --muted:#888E8C;
+    --line:#292B2A;
+    --line-strong:#3C403D;
+    --claret:#E0677E;
+    --claret-ink:#EF93A6;
+    --claret-soft:#3A1620;
+    --flag:#D9AE5E;
+    --flag-soft:#2A2013;
+    --amber:#D9AA55;
+    --amber-soft:#2A2314;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131413;
+  --card:#1B1C1B;
+  --ink:#E7E9E8;
+  --ink-2:#BBBFBC;
+  --muted:#888E8C;
+  --line:#292B2A;
+  --line-strong:#3C403D;
+  --claret:#E0677E;
+  --claret-ink:#EF93A6;
+  --claret-soft:#3A1620;
+  --flag:#D9AE5E;
+  --flag-soft:#2A2013;
+  --amber:#D9AA55;
+  --amber-soft:#2A2314;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px;padding-block:40px 64px}
+@media (max-width:560px){.wrap{padding-inline:16px;padding-block:28px 48px}}
+
+a{color:var(--claret)}
+a:focus-visible{outline:2px solid var(--claret);outline-offset:2px}
+h1,h2,h3{text-wrap:balance}
+.mono{font-family:var(--f-mono)}
+
+/* masthead */
+.masthead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;padding-bottom:22px;border-bottom:2px solid var(--ink)}
+.brandline{margin:0 0 10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--claret)}
+.masthead h1{margin:0;font-family:var(--f-display);font-weight:500;font-size:clamp(34px,5.4vw,54px);line-height:1.04;letter-spacing:-.01em}
+.masthead h1 em{font-style:italic;color:var(--claret)}
+.stamp{font-family:var(--f-mono);font-size:12px;line-height:1.7;color:var(--ink-2);text-align:right}
+.stamp b{color:var(--ink);font-weight:600}
+@media (max-width:700px){.stamp{text-align:left}}
+
+.lede{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px 48px;padding-block:26px 8px}
+.lede p{margin:0 0 12px;max-width:62ch;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+@media (max-width:820px){.lede{grid-template-columns:1fr}}
+
+/* chain of command */
+.chain{background:var(--card);border:1px solid var(--line);padding:18px 20px 16px}
+.chain-label{margin:0 0 12px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:2px}
+.node{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;padding:7px 11px;border:1px solid var(--line-strong);background:var(--paper);min-width:0}
+.node b{font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.02em}
+.node span{font-size:11.5px;color:var(--muted)}
+.node.key{border-color:var(--claret);background:var(--claret-soft)}
+.node.key b{color:var(--claret-ink)}
+.arrow{color:var(--muted);font-size:13px;line-height:1;padding-left:14px}
+.side{margin:14px 0 0;padding-top:12px;border-top:1px dashed var(--line-strong);font-size:13px;color:var(--ink-2)}
+.side b{font-family:var(--f-mono);color:var(--claret-ink)}
+
+/* index */
+.index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+.index div{background:var(--card);padding:12px 14px}
+.index h3{margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.index h3 i{font-style:normal;color:var(--claret)}
+.index ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 12px}
+.index a{font-family:var(--f-mono);font-size:13px;text-decoration:none;color:var(--ink)}
+.index a:hover{color:var(--claret);text-decoration:underline}
+@media (max-width:760px){.index{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+
+/* divisions */
+.division{margin-top:52px}
+.div-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.div-head h2{margin:0;font-family:var(--f-display);font-weight:500;font-size:30px;line-height:1.1}
+.div-head p{margin:0;font-size:13px;color:var(--muted);max-width:60ch}
+
+/* agent record */
+.agent{display:grid;grid-template-columns:170px minmax(0,1fr);gap:8px 28px;padding-block:24px;border-bottom:1px solid var(--line);scroll-margin-top:16px}
+.id{display:flex;flex-direction:column;gap:2px}
+.num{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.code{font-family:var(--f-mono);font-size:20px;font-weight:600;letter-spacing:.03em;color:var(--claret-ink)}
+.body h3{margin:0;font-family:var(--f-display);font-weight:500;font-size:24px;line-height:1.15}
+.summary{margin:6px 0 12px;max-width:68ch;color:var(--ink-2)}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 24px;margin:0 0 14px}
+.spec div{min-width:0}
+.spec dt{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.spec dd{margin:2px 0 0;font-size:13.5px;color:var(--ink)}
+.spec .wide{grid-column:1 / -1}
+@media (max-width:760px){
+  .agent{grid-template-columns:1fr;gap:10px}
+  .id{flex-direction:row;align-items:baseline;gap:10px}
+  .spec{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:420px){.spec{grid-template-columns:1fr}}
+
+.tag{display:inline-block;font-family:var(--f-mono);font-size:12px;font-weight:500;padding:1px 7px;border:1px solid var(--line-strong);color:var(--ink);background:var(--paper);white-space:nowrap}
+.tag.cap{border-color:var(--amber);color:var(--amber);background:var(--amber-soft)}
+.tag.fixed{border-color:var(--claret);color:var(--claret-ink);background:var(--claret-soft)}
+.plan{display:inline-block;margin-top:4px;font-size:12px;color:var(--muted)}
+
+.rule{display:grid;grid-template-columns:118px minmax(0,1fr);gap:4px 14px;padding:10px 14px;font-size:13.5px;margin:0 0 10px}
+.rule b{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding-top:2px}
+.rule p{margin:0}
+.rule.hard{background:var(--flag-soft);border-left:3px solid var(--flag)}
+.rule.hard b{color:var(--flag)}
+.rule.key{background:var(--card);border-left:3px solid var(--line-strong)}
+.rule.key b{color:var(--muted)}
+@media (max-width:520px){.rule{grid-template-columns:1fr}}
+
+.measured{margin:0;font-size:12.5px;color:var(--muted);max-width:90ch}
+.measured b{font-weight:600;color:var(--ink-2)}
+.file{margin:8px 0 0;font-family:var(--f-mono);font-size:11.5px;color:var(--muted);overflow-wrap:anywhere}
+
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line-strong);font-size:12.5px;color:var(--muted)}
+footer p{margin:0 0 6px;max-width:90ch}
+
+@media print{
+  :root{--paper:#fff;--card:#fff;--ink:#000;--ink-2:#222;--muted:#555;--line:#ccc;--line-strong:#999}
+  .agent{break-inside:avoid}
+  .index{display:none}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <p class="brandline">Mortgage CRM · Agent Roster</p>
+      <h1>Seventeen agents,<br><em>one front door</em>.</h1>
+    </div>
+    <div class="stamp">
+      <b>17</b> agents · <b>4</b> divisions · <b>14</b> hireable roles<br>
+      Runtime: Paperclip · Apps: Composio<br>
+      Handbook v6 · Rev. 2026-09-17
+    </div>
+  </header>
+
+  <section class="lede">
+    <div>
+      <p>This is the final roster for solo loan officers and small teams. Every agent has two names: a <strong>codename</strong> used in prompts and logs, and a <strong>job title</strong> for the one job it does. The storefront <strong>hire</strong> a client buys can combine several agents.</p>
+      <p>People reach the company only through <strong>SOPHIA</strong>, in the CRM's chat. SOPHIA answers questions about CRM data directly, without changing anything, and passes everything that needs doing to <strong>ATLAS</strong>, the only agent that assigns work. <strong>AEGIS</strong> checks everything that leaves the company and answers to the Account Owner, not to either of them.</p>
+    </div>
+    <div class="chain" aria-label="How instructions flow">
+      <p class="chain-label">How an instruction travels</p>
+      <div class="flow">
+        <div class="node"><b>Staff</b><span>chat in the CRM</span></div>
+        <span class="arrow" aria-hidden="true">↓</span>
+        <div class="node key"><b>SOPHIA</b><span>receives, answers</span></div>
+        <span class="arrow" aria-hidden="true">↓</span>
+        <div class="node key"><b>ATLAS</b><span>plans, delegates</span></div>
+        <span class="arrow" aria-hidden="true">↓</span>
+        <div class="node"><b>14 agents</b><span>do the work</span></div>
+      </div>
+      <p class="side"><b>AEGIS</b> answers to the Account Owner. Its findings go to the board's approval queue, and SOPHIA relays a copy. It sits under ATLAS in Paperclip's org tree only for escalation routing.</p>
+    </div>
+  </section>
+
+  <nav class="index" aria-label="Agents by division">
+    <div><h3>Command <i>3</i></h3><ul><li><a href="#sophia">SOPHIA</a></li><li><a href="#atlas">ATLAS</a></li><li><a href="#aegis">AEGIS</a></li></ul></div>
+    <div><h3>Revenue <i>7</i></h3><ul><li><a href="#scout">SCOUT</a></li><li><a href="#pulse">PULSE</a></li><li><a href="#echo">ECHO</a></li><li><a href="#vox">VOX</a></li><li><a href="#tempo">TEMPO</a></li><li><a href="#forge">FORGE</a></li><li><a href="#ember">EMBER</a></li></ul></div>
+    <div><h3>Marketing <i>3</i></h3><ul><li><a href="#quill">QUILL</a></li><li><a href="#canvas">CANVAS</a></li><li><a href="#relay">RELAY</a></li></ul></div>
+    <div><h3>Operations <i>4</i></h3><ul><li><a href="#circuit">CIRCUIT</a></li><li><a href="#ledger">LEDGER</a></li><li><a href="#warden">WARDEN</a></li><li><a href="#compass">COMPASS</a></li></ul></div>
+  </nav>
+
+  <div class="legend">
+    <span><span class="tag">L1–L4</span> autonomy, from advisory (L1) to acts unattended (L4)</span>
+    <span><span class="tag cap">L2 hard cap</span> held low by policy, not by capability</span>
+    <span><span class="tag fixed">cannot be disabled</span> always on</span>
+  </div>
+
+  <!-- ================= COMMAND ================= -->
+  <section class="division" aria-labelledby="d-command">
+    <div class="div-head">
+      <h2 id="d-command">Command</h2>
+      <p>Every request passes through these three. All three are included in every plan.</p>
+    </div>
+
+    <article class="agent" id="sophia">
+      <div class="id"><span class="num">01</span><span class="code">SOPHIA</span></div>
+      <div class="body">
+        <h3>Personal Assistant</h3>
+        <p class="summary">The chat front door for everyone on the team. It answers questions from the CRM and each person's own connected apps without changing anything, passes every instruction that needs work to ATLAS, and delivers results, briefs, escalations and AEGIS findings.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Personal Assistant</dd></div>
+          <div><dt>Reports to</dt><dd>Account Owner (Paperclip CEO, reporting to the board)</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L3</span><br><span class="plan">Included for the Account Owner; priced per additional seat</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>The CRM chat bot, per-user threads and memory, working-style profiles</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Carries messages; never decides them. It cannot approve anything, cannot advance, reject or remove an AEGIS review stage, and never softens, delays or withholds an AEGIS finding.</p></div>
+        <p class="measured"><b>Measured on</b> — instructions reaching ATLAS with intent and scope right the first time · instructions sent anywhere other than ATLAS (target zero) · direct CRM answers that were accurate and within the user's permissions · CRM writes by SOPHIA (target zero) · answers drawn from the wrong user's connected accounts (target zero) · decisions surfaced versus missed · time to first action each morning · commands executed without menu navigation · AEGIS findings delivered unaltered (must be 100%) · reported time saved</p>
+        <p class="file">instruction files/Command/SOPHIA/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="atlas">
+      <div class="id"><span class="num">02</span><span class="code">ATLAS</span></div>
+      <div class="body">
+        <h3>Chief of Staff</h3>
+        <p class="summary">Turns every instruction and inbound signal into a multi-agent plan, delegates each piece to the right specialist, keeps the per-contact memory brief, and returns one result to SOPHIA. It is the only agent that assigns work, and it does no specialist work itself.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Chief of Staff</dd></div>
+          <div><dt>Reports to</dt><dd>SOPHIA</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L4</span><br><span class="plan">Included in every plan</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Work plans and every agent task in Paperclip; signal routing; the per-contact memory brief; per-contact, per-campaign, per-user and per-branch budget halts</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>No authority over AEGIS, despite sitting above it in the org tree. It can't change AEGIS's instructions, role or budget, and can't advance, reject or remove its review stage.</p></div>
+        <p class="measured"><b>Measured on</b> — routing accuracy · tasks completed unattended · escalation precision · cost per completed task · outbound tasks created without an AEGIS review stage (target zero)</p>
+        <p class="file">instruction files/Command/ATLAS/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="aegis">
+      <div class="id"><span class="num">03</span><span class="code">AEGIS</span></div>
+      <div class="body">
+        <h3>Compliance Officer</h3>
+        <p class="summary">Checks all outbound communication: rules enforced in the gated send tools and the generation screen, and a judgment review on every outbound task. It approves content before it can be sent, rules on every compliance finding, scores conversations, and keeps the compliance audit trail.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Compliance Officer</dd></div>
+          <div><dt>Answers to</dt><dd>Account Owner, never ATLAS or SOPHIA (org tree: under ATLAS, for escalation routing only)</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L3</span> <span class="tag fixed">cannot be disabled</span><br><span class="plan">Included in every plan</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>The rules inside every gated tool and the voice platform; the suppression list; the disclosure builder; approval IDs; review stages; the compliance audit trail</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Answers to the Account Owner, not to ATLAS or SOPHIA. Its configuration and budget change only by board act, and no agent, including a chat request made through SOPHIA, can override its blocks.</p></div>
+        <p class="measured"><b>Measured on</b> — unconsented sends (target zero) · gate latency · QA coverage · outbound tasks closed without AEGIS review (target zero) · connected-app sends without a matching gate pass (target zero) · sends of unapproved content outside real-time channels (target zero) · audit export time · red-team findings closed</p>
+        <p class="file">instruction files/Command/AEGIS/AGENTS.md</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= REVENUE ================= -->
+  <section class="division" aria-labelledby="d-revenue">
+    <div class="div-head">
+      <h2 id="d-revenue">Revenue</h2>
+      <p>From a new lead to a closed loan and a lifetime customer.</p>
+    </div>
+
+    <article class="agent" id="scout">
+      <div class="id"><span class="num">04</span><span class="code">SCOUT</span></div>
+      <div class="body">
+        <h3>Lead Intake Coordinator</h3>
+        <p class="summary">First to touch every new lead. It takes leads in from every source through real-time triggers or direct webhooks, removes duplicates, enriches and assigns each one, and fires the intake event inside the speed-to-lead window. It never makes contact itself.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of The ISA</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L4</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Leads, Contacts, Forms</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Never pulls, requests, infers or stores consumer credit information. Position estimates always come from property data and are always labeled as estimates.</p></div>
+        <p class="measured"><b>Measured on</b> — median time to first touch · duplicate rate · enrichment coverage · junk catch rate · lead sources on a polling path</p>
+        <p class="file">instruction files/Revenue/SCOUT/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="pulse">
+      <div class="id"><span class="num">05</span><span class="code">PULSE</span></div>
+      <div class="body">
+        <h3>Lead Qualification Specialist</h3>
+        <p class="summary">Scores every contact on intent and fit, always as two separate scores, produces indicative scenarios labeled as estimates, and sets internal dispositions. It has no customer channel: its questions are asked inside ECHO's conversations and VOX's calls.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of The ISA</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag cap">L2 hard cap</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Lead scoring</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Never states or implies an approval, denial, pre-approval or eligibility outcome. A disqualification is an internal routing state and is never communicated to a customer as a decision.</p></div>
+        <p class="measured"><b>Measured on</b> — qualification completeness · fast-track override rate · score-to-close correlation · complexity caught early</p>
+        <p class="file">instruction files/Revenue/PULSE/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="echo">
+      <div class="id"><span class="num">06</span><span class="code">ECHO</span></div>
+      <div class="body">
+        <h3>Borrower Communications Coordinator</h3>
+        <p class="summary">Runs the written inbox (SMS, email, web chat and DMs) as a real conversation partner. It replies within sixty seconds from the approved library, handles objections, and turns conversations into booking requests for TEMPO.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of The ISA</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L3</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Conversations, Social Inbox</dd></div>
+        </dl>
+        <div class="rule key"><b>Key rule</b><p>Every reply comes from the approved library and leaves through a gated send tool. It exits a conversation permanently on an opt-out, hostility, legal language or a wrong number.</p></div>
+        <p class="measured"><b>Measured on</b> — response time · appointment set rate (the north star, not messages sent) · classification accuracy · handoff precision</p>
+        <p class="file">instruction files/Revenue/ECHO/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="vox">
+      <div class="id"><span class="num">07</span><span class="code">VOX</span></div>
+      <div class="body">
+        <h3>Receptionist</h3>
+        <p class="summary">Answers every inbound call and places outbound calls on the voice platform. It opens each call with the required AI disclosure, warm-transfers to a human with a spoken brief, and writes structured call notes to the record within seconds of hanging up.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>The Receptionist</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L3</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>AI Voice, Voice Campaigns</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Recording consent is handled by jurisdiction. When a caller asks for a human, the transfer is immediate, always, with no exception.</p></div>
+        <p class="measured"><b>Measured on</b> — answer speed · transfer success · disposition accuracy · calls converted to appointments · disclosure compliance (must be 100%)</p>
+        <p class="file">instruction files/Revenue/VOX/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="tempo">
+      <div class="id"><span class="num">08</span><span class="code">TEMPO</span></div>
+      <div class="body">
+        <h3>Scheduling Coordinator</h3>
+        <p class="summary">Owns time: live availability, bookings, reminders, no-show recovery and human to-do tasks. It is the only agent that writes to a calendar, and it sends confirmations and invitations only through gated tools.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of The ISA, The Receptionist, and the Coordinators</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L4</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Calendar, Bookings, Tasks</dd></div>
+        </dl>
+        <div class="rule key"><b>Key rule</b><p>Never deletes a calendar event; a reschedule moves it. Availability is read live at the moment of booking, never from trigger data.</p></div>
+        <p class="measured"><b>Measured on</b> — booking conversion · no-show and recovery rate · task completion · time to schedule multi-party meetings</p>
+        <p class="file">instruction files/Revenue/TEMPO/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="forge">
+      <div class="id"><span class="num">09</span><span class="code">FORGE</span></div>
+      <div class="body">
+        <h3>Loan Processing Coordinator</h3>
+        <p class="summary">Runs the loan file from won to closed: stage criteria, document filing and chasing, conditions, deadlines, e-signature and milestone updates. It then returns the closed file to ATLAS so EMBER can take it over.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Deal Coordinator / Transaction Coordinator</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L3</span> <span class="tag cap">L2 on terms</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Pipeline, Files</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundaries</b><p>Never alters terms, rates, locks or fees; changes are human acts with human audit trails. It flags what changed between document versions, but never performs legal review or advises on what an agreement means or whether it is enforceable.</p></div>
+        <p class="measured"><b>Measured on</b> — cycle time reduction · stall detection lag · document re-request rate · missed deadlines (target zero) · pull-through · classification and extraction accuracy · signature completion rate</p>
+        <p class="file">instruction files/Revenue/FORGE/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="ember">
+      <div class="id"><span class="num">10</span><span class="code">EMBER</span></div>
+      <div class="body">
+        <h3>Database Reactivation Coordinator</h3>
+        <p class="summary">Keeps every dormant contact, past borrower and partner on a clock, and reaches out only with a specific, record-based reason. It owns review requests, referrals and partner nurture, and hands every reply to ECHO.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Database Manager / part of Partner Manager</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L3</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Followup, Drip Campaigns</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Any message containing a rate, payment, term or cost figure routes through AEGIS's disclosure builder automatically. EMBER never drops the number to avoid the disclosure.</p></div>
+        <p class="measured"><b>Measured on</b> — dormant pool touched within SLA · reactivation to opportunity · reviews and referrals generated · unsubscribe rate under 0.3%</p>
+        <p class="file">instruction files/Revenue/EMBER/AGENTS.md</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= MARKETING ================= -->
+  <section class="division" aria-labelledby="d-marketing">
+    <div class="div-head">
+      <h2 id="d-marketing">Marketing</h2>
+      <p>QUILL writes, CANVAS designs, RELAY sends and publishes. AEGIS approves in between.</p>
+    </div>
+
+    <article class="agent" id="quill">
+      <div class="id"><span class="num">11</span><span class="code">QUILL</span></div>
+      <div class="body">
+        <h3>Content Writer</h3>
+        <p class="summary">Writes everything the company says, including templates, scripts, campaign assets, SEO content and the objection library, and keeps the brand record's voice and tone. Every draft passes the generation screen, and nothing sends until AEGIS approves it.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Content Writer / part of Marketing Coordinator</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L2</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Template Library, Content Generation, Brand Guideline (voice and tone)</dd></div>
+        </dl>
+        <div class="rule key"><b>Key rule</b><p>Never sends or publishes, and never approves its own work. Disclosures come from AEGIS's builder, never written by hand.</p></div>
+        <p class="measured"><b>Measured on</b> — turnaround time · compliance rejection rate under 2% · engagement lift per variant · template library performance · voice consistency across published assets</p>
+        <p class="file">instruction files/Marketing/QUILL/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="canvas">
+      <div class="id"><span class="num">12</span><span class="code">CANVAS</span></div>
+      <div class="body">
+        <h3>Graphic Designer</h3>
+        <p class="summary">Owns what the company looks like. It makes ad visuals, social graphics, carousels, decks and co-branded visuals, keeps the brand record's visual identity, and runs the content library with every image's source and rights recorded. Every image draft passes the generation screen, and nothing is used until AEGIS approves it.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of Marketing Coordinator / Partner Manager</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L2</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Brand Guideline (visual identity), Content Library</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Never generates, edits or uses the likeness of a real, identifiable person, except a staff member's own profile photo used with their recorded consent, or a partner's own headshot supplied with their written consent. Never uses an image whose source or rights are unknown, and imagery never implies a preferred demographic.</p></div>
+        <p class="measured"><b>Measured on</b> — brand consistency across published assets · asset reuse rate · production volume · library search success · assets in use with unknown source or rights (target zero)</p>
+        <p class="file">instruction files/Marketing/CANVAS/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="relay">
+      <div class="id"><span class="num">13</span><span class="code">RELAY</span></div>
+      <div class="body">
+        <h3>Digital Campaign Specialist</h3>
+        <p class="summary">Runs the send and the publish: email and SMS campaigns, organic posts on the company's own social pages, and paid social ads. It owns audiences, deliverability, SMS carrier registration, per-contact timing and statistically sound tests, and paces bulk sends so a campaign slows down rather than failing half-sent. Posts and ads go out only through gated publish tools, and comments on them go to ECHO.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of Marketing Coordinator</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L2</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Email, SMS, Social Planner, Ad Manager, Custom Campaigns</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Never spends more on a paid campaign than a board user approved, never changes an ad account's billing, payment method or spend limit, and never uploads contact data from the CRM to an ad platform. A paid audience never selects by a protected class or a proxy for one.</p></div>
+        <p class="measured"><b>Measured on</b> — inbox placement · delivery rate · complaint and bounce rates · test velocity · cost per engaged contact · cost per lead from paid social · spend over the approved amount (target zero) · live posts or ads carrying a revoked approval (target zero)</p>
+        <p class="file">instruction files/Marketing/RELAY/AGENTS.md</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= OPERATIONS ================= -->
+  <section class="division" aria-labelledby="d-operations">
+    <div class="div-head">
+      <h2 id="d-operations">Operations</h2>
+      <p>The workspace itself: workflows, reporting, access, and getting a new company live.</p>
+    </div>
+
+    <article class="agent" id="circuit">
+      <div class="id"><span class="num">14</span><span class="code">CIRCUIT</span></div>
+      <div class="body">
+        <h3>Workflow &amp; Integrations Specialist</h3>
+        <p class="summary">Builds, tests and monitors every workflow and Composio integration, including triggers, custom tools, the gated send, invite and e-signature tools, and the generation screen. AEGIS owns the rules inside those tools.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of Systems Admin</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L2</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Automation, Custom Fields, Form logic</dd></div>
+        </dl>
+        <div class="rule key"><b>Key rule</b><p>No workflow goes live without a backtest against historical data, even during onboarding. CIRCUIT never holds credentials or applies session-policy changes.</p></div>
+        <p class="measured"><b>Measured on</b> — workflows deployed · manual actions eliminated weekly · automation failure rate · failed tool calls · triggers silently stopped · request-to-live time</p>
+        <p class="file">instruction files/Operations/CIRCUIT/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="ledger">
+      <div class="id"><span class="num">15</span><span class="code">LEDGER</span></div>
+      <div class="body">
+        <h3>Operations &amp; Market Analyst</h3>
+        <p class="summary">Reports attribution, cost per closed deal, forecasts, team scorecards, anomalies and outside market conditions, and writes the daily executive brief. It advises only: it never acts, sends or enforces.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Operations Analyst / Market Analyst</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag cap">L1 advisory by design</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Dashboard, Reporting, Market data, Competitive intelligence, Territory analysis</dd></div>
+        </dl>
+        <div class="rule hard"><b>Hard boundary</b><p>Reports conditions and cites sources. It never forecasts rates or values as fact, and every projection is labeled as an estimate with its assumptions visible.</p></div>
+        <p class="measured"><b>Measured on</b> — 30-day forecast accuracy · anomaly detection lag · decisions traceable to an insight · market data freshness · trigger precision (reactivations fired that converted)</p>
+        <p class="file">instruction files/Operations/LEDGER/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="warden">
+      <div class="id"><span class="num">16</span><span class="code">WARDEN</span></div>
+      <div class="body">
+        <h3>Access &amp; Security Administrator</h3>
+        <p class="summary">Grants and revokes user access and maintains roles, branches, routing rules and API keys. It keeps the map of connected accounts, audits Paperclip grants and Composio session policies, and watches for access anomalies.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of Systems Admin</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L2</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>Profile, Company, Branches, Users, Roles, Modules, Tokens</dd></div>
+        </dl>
+        <div class="rule key"><b>Key rule</b><p>Access ends the day someone leaves, including every connected account under their ID. WARDEN proposes grant and policy changes; the board applies them.</p></div>
+        <p class="measured"><b>Measured on</b> — provisioning time · orphaned accounts (target zero) · permission audit findings · grant-map drift (target zero) · connected accounts left after offboarding (target zero) · session-policy drift (target zero) · security incidents</p>
+        <p class="file">instruction files/Operations/WARDEN/AGENTS.md</p>
+      </div>
+    </article>
+
+    <article class="agent" id="compass">
+      <div class="id"><span class="num">17</span><span class="code">COMPASS</span></div>
+      <div class="body">
+        <h3>Onboarding &amp; Adoption Specialist</h3>
+        <p class="summary">Owns the first thirty days and adoption after that. It interviews each company through SOPHIA, specifies its workspace and app connections, migrates its data, submits agent hire requests, and runs new agents in shadow mode, where they work without acting live until they're ready.</p>
+        <dl class="spec">
+          <div><dt>Hires as</dt><dd>Part of Chief of Staff</dd></div>
+          <div><dt>Reports to</dt><dd>ATLAS</dd></div>
+          <div><dt>Autonomy</dt><dd><span class="tag">L2</span><br><span class="plan">Included in every plan</span></dd></div>
+          <div class="wide"><dt>Owns</dt><dd>No module; it specifies the workspace, and the agent that owns each part applies it</dd></div>
+        </dl>
+        <div class="rule key"><b>Key rule</b><p>COMPASS specifies the setup and the owning agent applies it. Every agent hire goes through the board's approval queue.</p></div>
+        <p class="measured"><b>Measured on</b> — time to first value · modules live at 30 days · apps connected at 30 days · migration accuracy · seat-level active usage · 90-day retention</p>
+        <p class="file">instruction files/Operations/COMPASS/AGENTS.md</p>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <p>Source: <span class="mono">AGENT_HANDBOOK_17_SMALL_TEAMS_v6.md</span>. Each agent's full rulebook is its <span class="mono">AGENTS.md</span>, and cross-agent decisions are recorded in <span class="mono">AGENTS_md_conflict_resolutions.md</span>.</p>
+    <p>All seventeen <span class="mono">AGENTS.md</span> files match version 6. Open gaps are listed in <span class="mono">AGENTS_md_known_limitations.md</span>.</p>
+  </footer>
+
+</div>

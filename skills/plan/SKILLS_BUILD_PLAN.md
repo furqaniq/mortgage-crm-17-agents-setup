@@ -4,7 +4,7 @@
 
 The 17 `AGENTS.md` files rate 7.4/10 on function. The two dimensions dragging that number down are **Operability 3.0/5** and **Domain depth 2.5/5** — each agent knows what it owns and what it must never do, but not *how* to do any of it, step by step, with mortgage-specific detail. Skills are the fix, and `AGENTS_md_known_limitations.md` says so directly: its improvement path is (1) a PULSE scoring skill, (2) an AEGIS review/scoring skill, (3) a thresholds sheet, (4) two–three worked examples per agent, (5) a compliance-law pass — with steps 1–4 taking the set to roughly 9/10 before any law work.
 
-The inventory is settled. `16 agents setup/skills/agent-skills-17.html` catalogues **166 skills across 17 agents — 24 interlocks, 40 build-first, 44 gated on one of the 30 open Account Owner thresholds, 61 carrying a note naming the mortgage knowledge still to be written in.** This plan turns that catalogue into files.
+The inventory is settled. `17 agents setup/skills/agent-skills-17.html` catalogues **166 skills across 17 agents — 24 interlocks, 40 build-first, 44 gated on one of the 30 open Account Owner thresholds, 61 carrying a note naming the mortgage knowledge still to be written in.** This plan turns that catalogue into files.
 
 The file format is not up for design. It was settled by the 24-agent build at `PaperClip-company/Company design/ImportantAgentFiles/SKILLS/` — 187 files, 126k words, spec in its `SKILLS_FOLDER_STRUCTURE.md`. This plan matches it, with three deliberate divergences recorded below.
 
@@ -17,7 +17,7 @@ The file format is not up for design. It was settled by the 24-agent build at `P
 ## Where it lives
 
 ```
-16 agents setup/
+17 agents setup/
 ├── THRESHOLDS.md                  ← new. The 30 open decisions. One level up,
 ├── MORTGAGE_DOMAIN.md             ← new. because the AGENTS.md files cite them too.
 ├── instruction files/             ← unchanged (17 AGENTS.md)
@@ -102,7 +102,7 @@ Lift, render and check are three separate code paths, on purpose. `build_agent_c
 
 ## THRESHOLDS.md
 
-One file at `16 agents setup/THRESHOLDS.md`, one level above `skills/` because the `AGENTS.md` files cite it too. It is not a `SKILL.md`, so it may use a table. Thirty rows: number, name, **Proposed default** (clearly marked as a proposal, with one line of rationale), **Decided** (blank, Account Owner), **Shape** (what kind of value, in what unit), **Consumed by** (generated from `catalogue.json`, so it can't drift), **Unset behaviour**. Consumers are already known — e.g. #1 PULSE ×3, #2 AEGIS ×3, #12 WARDEN ×3, #23 CANVAS ×3, #25 VOX/TEMPO/FORGE; #5 and #24 each span two agents.
+One file at `17 agents setup/THRESHOLDS.md`, one level above `skills/` because the `AGENTS.md` files cite it too. It is not a `SKILL.md`, so it may use a table. Thirty rows: number, name, **Proposed default** (clearly marked as a proposal, with one line of rationale), **Decided** (blank, Account Owner), **Shape** (what kind of value, in what unit), **Consumed by** (generated from `catalogue.json`, so it can't drift), **Unset behaviour**. Consumers are already known — e.g. #1 PULSE ×3, #2 AEGIS ×3, #12 WARDEN ×3, #23 CANVAS ×3, #25 VOX/TEMPO/FORGE; #5 and #24 each span two agents.
 
 Skills cite it by one fixed, greppable, unlinked idiom — *the intent and fit scales in `THRESHOLDS.md` #1* — matching the existing citing-not-linking rule so the corpus has one reference idiom, not two. **No skill states a number that belongs to a threshold.** Numbers fixed by the roster itself — the L2 caps, the three-round changes-requested limit, the 72/48/24 ladder — are not thresholds and stay written in.
 

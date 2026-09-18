@@ -114,7 +114,7 @@ Taken together, steps 1–4 bring the set to about 9 / 10 before law is added.
 - Six body sections: When this fires, Inputs, Procedure, Output, Hard rules, Measured on.
 - Hard rules in two groups: the agent's `AGENTS.md` §5 inherited in full, then rules specific to the skill.
 
-Its PULSE `dual-axis-scorer` and AEGIS `conversation-scorer` are useful starting points, but they predate this roster (no SOPHIA, no Composio, a different set of agents) and must be checked against v5 and the resolutions before reuse. Skills for this roster go in `16 agents setup/skills/`.
+Its PULSE `dual-axis-scorer` and AEGIS `conversation-scorer` are useful starting points, but they predate this roster (no SOPHIA, no Composio, a different set of agents) and must be checked against v5 and the resolutions before reuse. Skills for this roster go in `17 agents setup/skills/`.
 
 ---
 
